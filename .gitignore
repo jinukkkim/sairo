@@ -1,0 +1,21 @@
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Secrets
+.env*
+!.env.example
+
+# Tooling scratch
+.superpowers/
+.pr-review/
+qa/
