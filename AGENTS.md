@@ -39,8 +39,11 @@ commit instead.
 
 ## Conventions specific to this repo
 
-Format, PR body structure, and the rest of the process live in the `ship`
-skill. Only what is true of *this* repo belongs here:
+Shared workflow conventions live in the user-installed `ship` skill, which
+is supplied by the agent environment rather than vendored in this repo.
+The rules below and `.github/PULL_REQUEST_TEMPLATE.md` provide this repo's
+commit and PR requirements even when that skill is unavailable. Only what
+is true of *this* repo belongs here:
 
 - **Commit format** — Conventional Commits: `type(scope): subject`. Types:
   `feat` `fix` `docs` `style` `refactor` `perf` `test` `chore` `ci` `revert`.
