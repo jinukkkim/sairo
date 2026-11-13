@@ -2,6 +2,7 @@ import json
 
 import httpx
 import pytest
+from pydantic import Field, create_model
 
 from core import ai, translation as tr
 
@@ -70,6 +71,42 @@ def test_every_result_schema_is_strict_without_changing_local_schema(result_type
     assert result_type.model_json_schema() == original
 
 
+def test_schema_keyword_names_are_preserved_as_field_names():
+    names = ['default', 'pattern', 'minLength', 'maximum']
+    result_type = create_model('KeywordFields', **{name: (str, Field(min_length=1, max_length=7)) for name in names})
+    original = result_type.model_json_schema()
+    schema = ai.provider_schema(original)
+    assert list(schema['properties']) == names
+    assert schema['required'] == names
+    for field in schema['properties'].values():
+        assert field['type'] == 'string'
+        assert 'minLength' not in field and 'maxLength' not in field
+    assert result_type.model_json_schema() == original
+
+
+def test_schema_keyword_names_are_preserved_as_definition_names():
+    nested = create_model('default', value=(str, ...))
+    result_type = create_model('NestedKeywords', nested=(nested, ...))
+    schema = ai.provider_schema(result_type.model_json_schema())
+    assert 'default' in schema['$defs']
+    assert schema['properties']['nested']['$ref'] == '#/$defs/default'
+
+
+def test_empty_object_schema_has_no_required_properties():
+    schema = ai.provider_schema({'type': 'object'})
+    assert schema == {'type': 'object', 'properties': {}, 'required': [], 'additionalProperties': False}
+
+
+@pytest.mark.parametrize('mapping', [dict, dict[str, str]])
+async def test_free_form_response_objects_fail_safely_before_provider_request(mapping):
+    result_type = create_model('DictionaryResult', values=(mapping, ...))
+    async with httpx.AsyncClient(transport=httpx.MockTransport(
+        lambda request: pytest.fail('An unsupported response schema must not reach the provider')
+    )) as client:
+        with pytest.raises(ai.TranslationError, match='free-form'):
+            await ai.generate(result_type, 'System rules', 'Source', api_key='test-key', client=client, model=ai.DEFAULT_MODEL)
+
+
 async def test_reasoning_items_can_precede_the_completed_structured_message():
     result = await generate({'status': 'completed', 'output': [
         {'type': 'reasoning', 'summary': []}, message()]})
@@ -109,7 +146,8 @@ async def test_unavailable_model_has_actionable_safe_error():
     async with httpx.AsyncClient(transport=httpx.MockTransport(
         lambda request: httpx.Response(404, json={'error': 'secret test-key'})
     )) as client:
-        with pytest.raises(ai.TranslationError, match='OPENAI_MODEL') as error:
+        with pytest.raises(ai.TranslationError, match='model') as error:
             await tr.translate('Hello', api_key='test-key', client=client)
+    assert 'OPENAI_MODEL' not in str(error.value)
     assert 'secret' not in str(error.value)
     assert 'test-key' not in str(error.value)
