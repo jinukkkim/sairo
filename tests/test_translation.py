@@ -56,6 +56,25 @@ def test_strips_input():
     assert MessageInput(message="  Hello  ").message == "Hello"
 
 
+def test_prompt_uses_the_normalized_source_message():
+    _, user = build_prompt('  Hello \n')
+    assert json.loads(user)['source_message'] == 'Hello'
+
+
+@pytest.mark.parametrize('field', ['message', 'missing_information'])
+@pytest.mark.parametrize('length', [6000, 6001])
+async def test_translation_text_length_is_validated_locally(field, length):
+    data = result_data()
+    data['translations'][0][field] = 'x' * length if field == 'message' else ['x' * length]
+    if length > 6000:
+        with pytest.raises(TranslationError, match='invalid response'):
+            await call_with(provider_response(data))
+    else:
+        result = await call_with(provider_response(data))
+        text = getattr(result.translations[0], field)
+        assert len(text if field == 'message' else text[0]) == 6000
+
+
 async def test_request_uses_structured_output_and_validates_result():
     def handle(request):
         assert request.url == "https://api.openai.com/v1/responses"

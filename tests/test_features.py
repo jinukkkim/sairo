@@ -65,6 +65,14 @@ async def test_review_accepts_empty_findings_and_requires_all_recipients():
             await invoke(tr.review, data, "Hello")
 
 
+def test_review_recipient_count_follows_the_configured_profiles(monkeypatch):
+    monkeypatch.setattr(tr, 'PROFILES', tr.PROFILES[:2])
+    data = {'reviews': [{'profile_id': id, 'likely_questions': [], 'missing_information': []}
+                        for id in ['manager', 'frontend']]}
+    result = tr.ReviewBatch.model_validate(data)
+    assert [review.profile_id for review in result.reviews] == ['manager', 'frontend']
+
+
 async def test_improvement_preserves_source_and_explicit_unresolved_information():
     data = {"revised_draft": "Please confirm [deadline?].", "unresolved_information": ["What is the deadline?"]}
     def inspect(payload):

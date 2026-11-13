@@ -56,8 +56,8 @@ class Translation(BaseModel):
     model_config = ConfigDict(extra="forbid")
     profile_id: ProfileId
     target_language: Language = "en"
-    message: str
-    missing_information: list[str]
+    message: Text
+    missing_information: list[Text]
 
     @field_validator("message")
     @classmethod
@@ -96,7 +96,7 @@ Use plain text, no Markdown. Keep results concise."""
 
 
 def build_prompt(message: str, target_languages=None) -> tuple[str, str]:
-    languages = TranslationInput(message=message, target_languages=target_languages or {}).target_languages
+    source = TranslationInput(message=message, target_languages=target_languages or {})
     system = """Rewrite a workplace message for each recipient's perspective.
 English is the default; en=English, ko=Korean, zh=Chinese. Each rewrite AND its
 clarification questions must use that recipient's target language; return target_language.
@@ -105,8 +105,8 @@ Do not create work or turn possible implications into facts. Ask short questions
 missing_information for relevant missing facts, or return an empty list.
 Return exactly one translation per supplied profile_id, roughly 60–120 words at most.
 This is perspective translation, not a pre-send review. """ + FACT_RULES
-    user = json.dumps({"source_message": message, "recipients": [p.model_dump() for p in PROFILES],
-                       "target_languages": languages, "team_context": TEAM_CONTEXT}, ensure_ascii=False)
+    user = json.dumps({"source_message": source.message, "recipients": [p.model_dump() for p in PROFILES],
+                       "target_languages": source.target_languages, "team_context": TEAM_CONTEXT}, ensure_ascii=False)
     return system, user
 
 
@@ -141,7 +141,7 @@ class ReviewBatch(Output):
     @model_validator(mode="after")
     def complete_recipients(self):
         ids = [r.profile_id for r in self.reviews]
-        if len(ids) != 3 or set(ids) != {p.id for p in PROFILES}:
+        if len(ids) != len(PROFILES) or set(ids) != {p.id for p in PROFILES}:
             raise ValueError("Expected exactly one review per recipient")
         return self
 
