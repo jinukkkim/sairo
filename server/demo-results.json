@@ -1,0 +1,1004 @@
+{
+  "translations": {
+    "For the release, let’s simplify all checkout screens.": {
+      "en": {
+        "manager": {
+          "message": "For this release, let’s make all the checkout screens simpler.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "For this release, let’s make all the checkout screens simpler.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "For this release, let’s make all the checkout screens simpler.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "이번 출시에서는 결제 과정의 모든 화면을 더 간단하게 만들어봐요.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "이번 출시에서는 결제 과정의 모든 화면을 더 간단하게 만들어봐요.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "이번 출시에서는 결제 과정의 모든 화면을 더 간단하게 만들어봐요.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "这次发布，我们把整个结账流程的页面都简化一下吧。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "这次发布，我们把整个结账流程的页面都简化一下吧。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "这次发布，我们把整个结账流程的页面都简化一下吧。",
+          "missing_information": []
+        }
+      }
+    },
+    "I’m planning changes to the payment screen only. The API will stay the same.": {
+      "en": {
+        "manager": {
+          "message": "I’m planning to change only the payment screen. The way the app exchanges data with the server will stay the same.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "I’m planning to change only the payment screen. The API will stay the same.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "I’m planning to update only the payment screen. The interface between the app and server will stay the same.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "결제 화면만 바꾸려고 해요. 앱과 서버가 데이터를 주고받는 방식은 그대로예요.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "결제 화면만 바꾸려고 해요. 앱과 서버가 데이터를 주고받는 방식은 그대로예요.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "결제 화면만 바꾸려고 해요. 앱과 서버가 데이터를 주고받는 방식은 그대로예요.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "我只打算修改支付页面。应用和服务器交换数据的方式保持不变。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "我只打算修改支付页面。应用和服务器交换数据的方式保持不变。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "我只打算修改支付页面。应用和服务器交换数据的方式保持不变。",
+          "missing_information": []
+        }
+      }
+    },
+    "My draft covers cart, address and payment. Are all three in scope?": {
+      "en": {
+        "manager": {
+          "message": "My draft includes the cart, address and payment screens. Are we changing all three?",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "My draft includes the cart, address and payment screens. Are we changing all three?",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "My draft includes the cart, address and payment screens. Are we changing all three?",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "제 시안에는 장바구니, 주소, 결제 화면이 들어 있어요. 세 화면 모두 이번에 바꾸는 건가요?",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "제 시안에는 장바구니, 주소, 결제 화면이 들어 있어요. 세 화면 모두 이번에 바꾸는 건가요?",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "제 시안에는 장바구니, 주소, 결제 화면이 들어 있어요. 세 화면 모두 이번에 바꾸는 건가요?",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "我的设计稿包括购物车、地址和支付页面。这三个页面都在这次修改的范围内吗？",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "我的设计稿包括购物车、地址和支付页面。这三个页面都在这次修改的范围内吗？",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "我的设计稿包括购物车、地址和支付页面。这三个页面都在这次修改的范围内吗？",
+          "missing_information": []
+        }
+      }
+    },
+    "Good question. Let’s settle the scope here before anyone starts building. Jamie, what would keep the implementation manageable?": {
+      "en": {
+        "manager": {
+          "message": "Good question. Let’s agree which screens to change before anyone starts building. Jamie, what would make the work manageable?",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "Good question. Let’s agree which screens to change before anyone starts building. Jamie, what would make the work manageable?",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "Good question. Let’s agree which screens to change before anyone starts building. Jamie, what would make the work manageable?",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "좋은 질문이에요. 개발을 시작하기 전에 어떤 화면까지 바꿀지 먼저 정해요. Jamie, 어느 정도 범위라면 무리 없이 구현할 수 있을까요?",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "좋은 질문이에요. 개발을 시작하기 전에 어떤 화면까지 바꿀지 먼저 정해요. Jamie, 어느 정도 범위라면 무리 없이 구현할 수 있을까요?",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "좋은 질문이에요. 개발을 시작하기 전에 어떤 화면까지 바꿀지 먼저 정해요. Jamie, 어느 정도 범위라면 무리 없이 구현할 수 있을까요?",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "问得好。开始开发之前，我们先确定要修改哪些页面吧。Jamie，怎样的范围能让实现工作更好推进？",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "问得好。开始开发之前，我们先确定要修改哪些页面吧。Jamie，怎样的范围能让实现工作更好推进？",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "问得好。开始开发之前，我们先确定要修改哪些页面吧。Jamie，怎样的范围能让实现工作更好推进？",
+          "missing_information": []
+        }
+      }
+    },
+    "Payment first would help. We can keep the existing API contract and handle the failed-payment state in the UI.": {
+      "en": {
+        "manager": {
+          "message": "Starting with payment would help. We can keep the way the app and server exchange data as it is, and handle payment failures on the screen.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "Starting with payment would help. We can keep the existing API contract and handle failed payments in the UI.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "Starting with the payment screen would help. We can leave the server interface as it is and handle payment failures in the UI.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "결제부터 시작하면 좋겠어요. 서버와 주고받는 데이터 형식은 그대로 두고, 결제에 실패했을 때의 처리는 화면 쪽에서 하면 돼요.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "결제부터 시작하면 좋겠어요. 서버와 주고받는 데이터 형식은 그대로 두고, 결제에 실패했을 때의 처리는 화면 쪽에서 하면 돼요.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "결제부터 시작하면 좋겠어요. 서버와 주고받는 데이터 형식은 그대로 두고, 결제에 실패했을 때의 처리는 화면 쪽에서 하면 돼요.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "先做支付会更好。我们可以保留现有的数据交互方式，在界面上处理支付失败的情况。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "先做支付会更好。我们可以保留现有的数据交互方式，在界面上处理支付失败的情况。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "先做支付会更好。我们可以保留现有的数据交互方式，在界面上处理支付失败的情况。",
+          "missing_information": []
+        }
+      }
+    },
+    "I’ll start with the payment states then. One open question: do we keep the form values after a failed attempt?": {
+      "en": {
+        "manager": {
+          "message": "I’ll start with the different payment-screen states, then. One question: should we keep the information entered in the form if payment fails?",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "I’ll start with the different payment-screen states, then. One question: should we keep the information entered in the form if payment fails?",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "I’ll start with the different payment-screen states, then. One question: should we keep the information entered in the form if payment fails?",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "그럼 결제 상태별 화면부터 작업할게요. 한 가지 확인하고 싶은데, 결제가 실패해도 입력한 내용은 남겨둘까요?",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "그럼 결제 상태별 화면부터 작업할게요. 한 가지 확인하고 싶은데, 결제가 실패해도 입력한 내용은 남겨둘까요?",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "그럼 결제 상태별 화면부터 작업할게요. 한 가지 확인하고 싶은데, 결제가 실패해도 입력한 내용은 남겨둘까요?",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "那我先做支付在不同状态下的页面。有个问题：支付失败后，要保留表单里已经填写的内容吗？",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "那我先做支付在不同状态下的页面。有个问题：支付失败后，要保留表单里已经填写的内容吗？",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "那我先做支付在不同状态下的页面。有个问题：支付失败后，要保留表单里已经填写的内容吗？",
+          "missing_information": []
+        }
+      }
+    },
+    "A quick home for decisions and progress. Bring the discussion to #team-checkout; share the outcome here.": {
+      "en": {
+        "manager": {
+          "message": "Let’s use this channel for decisions and progress updates. Discuss the details in #team-checkout, then share the outcome here.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "Let’s use this channel for decisions and progress updates. Discuss the details in #team-checkout, then share the outcome here.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "Let’s use this channel for decisions and progress updates. Discuss the details in #team-checkout, then share the outcome here.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "이 채널에는 결정한 내용과 진행 상황을 모아둘게요. 자세한 얘기는 #team-checkout에서 나누고, 결론을 여기에 공유해주세요.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "이 채널에는 결정한 내용과 진행 상황을 모아둘게요. 자세한 얘기는 #team-checkout에서 나누고, 결론을 여기에 공유해주세요.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "이 채널에는 결정한 내용과 진행 상황을 모아둘게요. 자세한 얘기는 #team-checkout에서 나누고, 결론을 여기에 공유해주세요.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "这个频道用来记录决定和进展。具体细节在#team-checkout讨论，再把结果分享到这里。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "这个频道用来记录决定和进展。具体细节在#team-checkout讨论，再把结果分享到这里。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "这个频道用来记录决定和进展。具体细节在#team-checkout讨论，再把结果分享到这里。",
+          "missing_information": []
+        }
+      }
+    },
+    "The updated component library is ready for review. Error, loading and empty states are included.": {
+      "en": {
+        "manager": {
+          "message": "The updated set of reusable screen elements is ready to review. It includes what to show when something goes wrong, is loading or has no content.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "The updated set of reusable screen elements is ready to review. It includes what to show when something goes wrong, is loading or has no content.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "The updated UI component library is ready for review. It includes error, loading and empty states.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "수정한 공통 화면 요소 모음을 검토할 준비가 됐어요. 오류가 났을 때, 불러오는 중일 때, 내용이 없을 때의 화면도 넣었어요.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "수정한 공통 화면 요소 모음을 검토할 준비가 됐어요. 오류가 났을 때, 불러오는 중일 때, 내용이 없을 때의 화면도 넣었어요.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "수정한 공통 화면 요소 모음을 검토할 준비가 됐어요. 오류가 났을 때, 불러오는 중일 때, 내용이 없을 때의 화면도 넣었어요.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "更新后的可复用界面组件已经可以评审了，包括出错、加载中和没有内容时的显示状态。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "更新后的可复用界面组件已经可以评审了，包括出错、加载中和没有内容时的显示状态。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "更新后的可复用界面组件已经可以评审了，包括出错、加载中和没有内容时的显示状态。",
+          "missing_information": []
+        }
+      }
+    },
+    "Thanks! I’ll use these states for the next checkout iteration.": {
+      "en": {
+        "manager": {
+          "message": "Thanks! I’ll use these screen states in the next checkout update.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "Thanks! I’ll use these screen states in the next checkout update.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "Thanks! I’ll use these screen states in the next checkout update.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "고마워요! 다음 결제 화면 개선 작업에 이 상태들을 쓸게요.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "고마워요! 다음 결제 화면 개선 작업에 이 상태들을 쓸게요.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "고마워요! 다음 결제 화면 개선 작업에 이 상태들을 쓸게요.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "谢谢！下一次更新结账页面时，我会用上这些状态。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "谢谢！下一次更新结账页面时，我会用上这些状态。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "谢谢！下一次更新结账页面时，我会用上这些状态。",
+          "missing_information": []
+        }
+      }
+    },
+    "For this review, payment is the only screen in scope. Cart and address can wait.": {
+      "en": {
+        "manager": {
+          "message": "For this review, we’re only looking at the payment screen. Cart and address can wait.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "For this review, we’re only looking at the payment screen. Cart and address can wait.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "For this review, we’re only looking at the payment screen. Cart and address can wait.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "이번 검토에서는 결제 화면만 다뤄요. 장바구니와 주소 화면은 나중에 해도 돼요.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "이번 검토에서는 결제 화면만 다뤄요. 장바구니와 주소 화면은 나중에 해도 돼요.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "이번 검토에서는 결제 화면만 다뤄요. 장바구니와 주소 화면은 나중에 해도 돼요.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "这次评审只看支付页面。购物车和地址页面可以之后再做。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "这次评审只看支付页面。购物车和地址页面可以之后再做。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "这次评审只看支付页面。购物车和地址页面可以之后再做。",
+          "missing_information": []
+        }
+      }
+    },
+    "Agreed: payment only. I’ll show inline retry messages for failed payments, with cart and address unchanged.": {
+      "en": {
+        "manager": {
+          "message": "Agreed—payment only. I’ll show a retry message within the payment form if payment fails, and leave cart and address unchanged.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "Agreed—payment only. I’ll show a retry message within the payment form if payment fails, and leave cart and address unchanged.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "Agreed—payment only. I’ll show a retry message within the payment form if payment fails, and leave cart and address unchanged.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "좋아요. 결제 화면만 다룰게요. 결제가 실패하면 화면 안에 다시 시도하라는 안내를 보여주고, 장바구니와 주소 화면은 그대로 둘게요.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "좋아요. 결제 화면만 다룰게요. 결제가 실패하면 화면 안에 다시 시도하라는 안내를 보여주고, 장바구니와 주소 화면은 그대로 둘게요.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "좋아요. 결제 화면만 다룰게요. 결제가 실패하면 화면 안에 다시 시도하라는 안내를 보여주고, 장바구니와 주소 화면은 그대로 둘게요.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "同意，只做支付页面。支付失败时，我会在表单内显示重试提示，购物车和地址页面保持不变。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "同意，只做支付页面。支付失败时，我会在表单内显示重试提示，购物车和地址页面保持不变。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "同意，只做支付页面。支付失败时，我会在表单内显示重试提示，购物车和地址页面保持不变。",
+          "missing_information": []
+        }
+      }
+    },
+    "Only the payment screen is in scope. Keep cart and address unchanged.": {
+      "en": {
+        "manager": {
+          "message": "Only change the payment screen. Leave cart and address as they are.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "Only change the payment screen. Leave cart and address as they are.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "Only change the payment screen. Leave cart and address as they are.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "결제 화면만 수정해요. 장바구니와 주소 화면은 그대로 둬요.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "결제 화면만 수정해요. 장바구니와 주소 화면은 그대로 둬요.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "결제 화면만 수정해요. 장바구니와 주소 화면은 그대로 둬요.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "只修改支付页面，购物车和地址页面保持原样。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "只修改支付页面，购物车和地址页面保持原样。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "只修改支付页面，购物车和地址页面保持原样。",
+          "missing_information": []
+        }
+      }
+    },
+    "Agreed: payment only, with no changes to cart or address.": {
+      "en": {
+        "manager": {
+          "message": "Agreed—payment only, with no changes to cart or address.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "Agreed—payment only, with no changes to cart or address.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "Agreed—payment only, with no changes to cart or address.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "좋아요. 결제 화면만 바꾸고, 장바구니와 주소 화면은 그대로 두는 거죠.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "좋아요. 결제 화면만 바꾸고, 장바구니와 주소 화면은 그대로 두는 거죠.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "좋아요. 결제 화면만 바꾸고, 장바구니와 주소 화면은 그대로 두는 거죠.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "同意，只修改支付页面，不改购物车和地址页面。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "同意，只修改支付页面，不改购物车和地址页面。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "同意，只修改支付页面，不改购物车和地址页面。",
+          "missing_information": []
+        }
+      }
+    },
+    "My mockups match: payment only. Cart and address stay unchanged.": {
+      "en": {
+        "manager": {
+          "message": "My mockups follow the same plan: payment only. Cart and address stay as they are.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "My mockups follow the same plan: payment only. Cart and address stay as they are.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "My mockups follow the same plan: payment only. Cart and address stay as they are.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "제 시안도 결제 화면만 다루고 있어요. 장바구니와 주소 화면은 그대로예요.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "제 시안도 결제 화면만 다루고 있어요. 장바구니와 주소 화면은 그대로예요.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "제 시안도 결제 화면만 다루고 있어요. 장바구니와 주소 화면은 그대로예요.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "我的设计稿也一样：只修改支付页面，购物车和地址页面不变。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "我的设计稿也一样：只修改支付页面，购物车和地址页面不变。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "我的设计稿也一样：只修改支付页面，购物车和地址页面不变。",
+          "missing_information": []
+        }
+      }
+    },
+    "Checkout feels slow. Let’s simplify the flow and show better error states before the release. We still need to agree on the affected screens, failure conditions and timing.": {
+      "en": {
+        "manager": {
+          "message": "Checkout feels slow. Let’s make the steps simpler and show clearer errors before release. We still need to agree which screens to change, which failures to handle and when to do the work.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "Checkout feels slow. Let’s make the steps simpler and show clearer errors before release. We still need to agree which screens to change, which failures to handle and when to do the work.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "Checkout feels slow. Let’s make the steps simpler and show clearer errors before release. We still need to agree which screens to change, which failures to handle and when to do the work.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "결제 과정이 느리게 느껴져요. 출시 전에 과정을 간단하게 하고 오류 안내도 더 명확하게 해봐요. 어느 화면을 바꿀지, 어떤 실패 상황을 처리할지, 일정은 아직 합의가 필요해요.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "결제 과정이 느리게 느껴져요. 출시 전에 과정을 간단하게 하고 오류 안내도 더 명확하게 해봐요. 어느 화면을 바꿀지, 어떤 실패 상황을 처리할지, 일정은 아직 합의가 필요해요.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "결제 과정이 느리게 느껴져요. 출시 전에 과정을 간단하게 하고 오류 안내도 더 명확하게 해봐요. 어느 화면을 바꿀지, 어떤 실패 상황을 처리할지, 일정은 아직 합의가 필요해요.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "结账过程感觉有点慢。发布前，我们简化一下流程，让错误提示更清楚吧。还需要商量修改哪些页面、处理哪些失败情况，以及什么时候做。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "结账过程感觉有点慢。发布前，我们简化一下流程，让错误提示更清楚吧。还需要商量修改哪些页面、处理哪些失败情况，以及什么时候做。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "结账过程感觉有点慢。发布前，我们简化一下流程，让错误提示更清楚吧。还需要商量修改哪些页面、处理哪些失败情况，以及什么时候做。",
+          "missing_information": []
+        }
+      }
+    },
+    "For payment errors, show an inline retry message. Cart and address are out of scope. Please prioritize the mockup for review on Friday; implementation timing is not agreed.": {
+      "en": {
+        "manager": {
+          "message": "For payment errors, show a retry message within the form. Don’t change cart or address. Please prioritize the mockup for Friday’s review; we haven’t agreed when implementation will happen.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "For payment errors, show a retry message within the form. Don’t change cart or address. Please prioritize the mockup for Friday’s review; we haven’t agreed when implementation will happen.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "For payment errors, show a retry message within the form. Don’t change cart or address. Please prioritize the mockup for Friday’s review; we haven’t agreed when implementation will happen.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "결제 오류가 나면 화면 안에 다시 시도하라는 안내를 보여주세요. 장바구니와 주소 화면은 바꾸지 않고요. 금요일 검토를 위해 시안을 우선 준비해주세요. 구현 일정은 아직 합의하지 않았어요.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "결제 오류가 나면 화면 안에 다시 시도하라는 안내를 보여주세요. 장바구니와 주소 화면은 바꾸지 않고요. 금요일 검토를 위해 시안을 우선 준비해주세요. 구현 일정은 아직 합의하지 않았어요.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "결제 오류가 나면 화면 안에 다시 시도하라는 안내를 보여주세요. 장바구니와 주소 화면은 바꾸지 않고요. 금요일 검토를 위해 시안을 우선 준비해주세요. 구현 일정은 아직 합의하지 않았어요.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "支付出错时，在表单内显示重试提示。购物车和地址页面不改。请优先准备好周五要评审的设计稿；实现时间还没有商定。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "支付出错时，在表单内显示重试提示。购物车和地址页面不改。请优先准备好周五要评审的设计稿；实现时间还没有商定。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "支付出错时，在表单内显示重试提示。购物车和地址页面不改。请优先准备好周五要评审的设计稿；实现时间还没有商定。",
+          "missing_information": []
+        }
+      }
+    }
+  },
+  "unknown_translation": {
+    "en": "Prepared demo only: this new message has not been analyzed. Try a message from the seeded conversation to see a role-adapted example.",
+    "ko": "미리 준비한 데모입니다. 새로 입력한 메시지는 분석하지 않았습니다. 예시 대화의 메시지를 선택하면 역할에 맞춘 설명을 볼 수 있습니다.",
+    "zh": "这是预先准备的演示。新输入的消息没有经过分析。请选择示例对话中的消息，查看针对不同角色的说明。"
+  },
+  "drafts": {
+    "Checkout feels slow. Let’s simplify the flow and show better error states before the release. We still need to agree on the affected screens, failure conditions and timing.": {
+      "review": {
+        "reviews": [
+          {
+            "profile_id": "manager",
+            "likely_questions": [
+              "Which release and what is the priority?"
+            ],
+            "missing_information": [
+              {
+                "category": "deadline",
+                "question": "When is the review needed?"
+              }
+            ]
+          },
+          {
+            "profile_id": "frontend",
+            "likely_questions": [
+              "Which failures need a new state?"
+            ],
+            "missing_information": [
+              {
+                "category": "conditions",
+                "question": "Which API failures should trigger the error state?"
+              }
+            ]
+          },
+          {
+            "profile_id": "designer",
+            "likely_questions": [
+              "Which screens are included?"
+            ],
+            "missing_information": [
+              {
+                "category": "scope",
+                "question": "Does this include cart, address and payment?"
+              }
+            ]
+          }
+        ]
+      },
+      "improvement": {
+        "revised_draft": "Checkout feels slow. Before the release, simplify the flow and make error states clearer. Confirm [affected screens?], [failure conditions?] and [review and implementation dates?] before starting.",
+        "unresolved_information": [
+          "Which checkout screens are included?",
+          "Which failures need an error state?",
+          "When are review and implementation needed?"
+        ]
+      }
+    },
+    "For payment errors, show an inline retry message. Cart and address are out of scope. Please prioritize the mockup for review on Friday; implementation timing is not agreed.": {
+      "review": {
+        "reviews": [
+          {
+            "profile_id": "manager",
+            "likely_questions": [],
+            "missing_information": []
+          },
+          {
+            "profile_id": "frontend",
+            "likely_questions": [],
+            "missing_information": []
+          },
+          {
+            "profile_id": "designer",
+            "likely_questions": [],
+            "missing_information": []
+          }
+        ]
+      },
+      "improvement": {
+        "revised_draft": "For payment errors, show an inline retry message. Cart and address are out of scope. Please prioritize the mockup for review on Friday; implementation timing is not agreed.",
+        "unresolved_information": []
+      }
+    }
+  },
+  "threads": [
+    {
+      "messages": [
+        {
+          "id": "m1",
+          "profile_id": "manager",
+          "text": "For the release, let’s simplify all checkout screens."
+        },
+        {
+          "id": "m2",
+          "profile_id": "frontend",
+          "text": "I’m planning changes to the payment screen only. The API will stay the same."
+        },
+        {
+          "id": "m3",
+          "profile_id": "designer",
+          "text": "My draft covers cart, address and payment. Are all three in scope?"
+        },
+        {
+          "id": "m4",
+          "profile_id": "manager",
+          "text": "Good question. Let’s settle the scope here before anyone starts building. Jamie, what would keep the implementation manageable?"
+        },
+        {
+          "id": "m5",
+          "profile_id": "frontend",
+          "text": "Payment first would help. We can keep the existing API contract and handle the failed-payment state in the UI."
+        },
+        {
+          "id": "m6",
+          "profile_id": "designer",
+          "text": "I’ll start with the payment states then. One open question: do we keep the form values after a failed attempt?"
+        }
+      ],
+      "result": {
+        "interpretations": [
+          {
+            "profile_id": "manager",
+            "understanding": "All checkout screens may be included.",
+            "insufficient_evidence": false,
+            "source_message_ids": [
+              "m1"
+            ]
+          },
+          {
+            "profile_id": "frontend",
+            "understanding": "Payment only is planned.",
+            "insufficient_evidence": false,
+            "source_message_ids": [
+              "m2"
+            ]
+          },
+          {
+            "profile_id": "designer",
+            "understanding": "Cart, address and payment appear in the draft; scope is still a question.",
+            "insufficient_evidence": false,
+            "source_message_ids": [
+              "m3"
+            ]
+          }
+        ],
+        "disagreements": [
+          {
+            "id": "sample-c1",
+            "topic": "Affected screens",
+            "profile_ids": [
+              "manager",
+              "frontend"
+            ],
+            "source_message_ids": [
+              "m1",
+              "m2"
+            ],
+            "question": "Which screens should change for this release?",
+            "choices": [
+              "All checkout screens",
+              "Payment only"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "messages": [
+        {
+          "id": "d1",
+          "profile_id": "manager",
+          "text": "For this review, payment is the only screen in scope. Cart and address can wait."
+        },
+        {
+          "id": "d2",
+          "profile_id": "designer",
+          "text": "Agreed: payment only. I’ll show inline retry messages for failed payments, with cart and address unchanged."
+        }
+      ],
+      "result": {
+        "interpretations": [
+          {
+            "profile_id": "manager",
+            "understanding": "Only payment is included in this review. Do not change the cart or address screens for this work.",
+            "insufficient_evidence": false,
+            "source_message_ids": [
+              "d1"
+            ]
+          },
+          {
+            "profile_id": "designer",
+            "understanding": "Sam agrees to payment-only scope. Failed payments will get a retry message beside the relevant form; cart and address remain unchanged.",
+            "insufficient_evidence": false,
+            "source_message_ids": [
+              "d2"
+            ]
+          }
+        ],
+        "disagreements": []
+      }
+    },
+    {
+      "messages": [
+        {
+          "id": "p1",
+          "profile_id": "manager",
+          "text": "A quick home for decisions and progress. Bring the discussion to #team-checkout; share the outcome here."
+        },
+        {
+          "id": "p2",
+          "profile_id": "designer",
+          "text": "The updated component library is ready for review. Error, loading and empty states are included."
+        },
+        {
+          "id": "p3",
+          "profile_id": "frontend",
+          "text": "Thanks! I’ll use these states for the next checkout iteration."
+        }
+      ],
+      "result": {
+        "interpretations": [
+          {
+            "profile_id": "manager",
+            "understanding": "Use this channel to share decisions and progress. Discuss the details in team-checkout, then post the outcome here.",
+            "insufficient_evidence": false,
+            "source_message_ids": [
+              "p1"
+            ]
+          },
+          {
+            "profile_id": "frontend",
+            "understanding": "Jamie intends to use those prepared error, loading and empty states in the next checkout update.",
+            "insufficient_evidence": false,
+            "source_message_ids": [
+              "p3"
+            ]
+          },
+          {
+            "profile_id": "designer",
+            "understanding": "Sam has prepared reusable interface components for review, including how the screen looks when something fails, is loading or has no content.",
+            "insufficient_evidence": false,
+            "source_message_ids": [
+              "p2"
+            ]
+          }
+        ],
+        "disagreements": []
+      }
+    },
+    {
+      "messages": [
+        {
+          "id": "a1",
+          "profile_id": "manager",
+          "text": "Only the payment screen is in scope. Keep cart and address unchanged."
+        },
+        {
+          "id": "a2",
+          "profile_id": "frontend",
+          "text": "Agreed: payment only, with no changes to cart or address."
+        },
+        {
+          "id": "a3",
+          "profile_id": "designer",
+          "text": "My mockups match: payment only. Cart and address stay unchanged."
+        }
+      ],
+      "result": {
+        "interpretations": [
+          {
+            "profile_id": "manager",
+            "understanding": "Only the payment screen should change. Cart and address are explicitly excluded.",
+            "insufficient_evidence": false,
+            "source_message_ids": [
+              "a1"
+            ]
+          },
+          {
+            "profile_id": "frontend",
+            "understanding": "Jamie agrees to change payment only and leave cart and address as they are.",
+            "insufficient_evidence": false,
+            "source_message_ids": [
+              "a2"
+            ]
+          },
+          {
+            "profile_id": "designer",
+            "understanding": "Sam confirms the designs follow the same payment-only scope. Cart and address stay unchanged.",
+            "insufficient_evidence": false,
+            "source_message_ids": [
+              "a3"
+            ]
+          }
+        ],
+        "disagreements": []
+      }
+    }
+  ]
+}
