@@ -15,9 +15,18 @@ def provider_schema(value):
     unsupported = {"minLength", "maxLength", "minItems", "maxItems", "pattern",
                    "minimum", "maximum", "exclusiveMinimum", "exclusiveMaximum", "multipleOf", "default"}
     if isinstance(value, dict):
-        schema = {key: provider_schema(item) for key, item in value.items() if key not in unsupported}
+        schema = {}
+        for key, item in value.items():
+            if key in unsupported:
+                continue
+            if key in {"properties", "$defs"}:
+                schema[key] = {name: provider_schema(child) for name, child in item.items()}
+            else:
+                schema[key] = provider_schema(item)
         if schema.get("type") == "object":
-            schema["required"] = list(schema["properties"])
+            if schema.get("additionalProperties") not in (None, False):
+                raise TranslationError("The response schema contains a free-form object. Use explicit response fields instead.")
+            schema["required"] = list(schema.setdefault("properties", {}))
             schema["additionalProperties"] = False
         return schema
     if isinstance(value, list):
@@ -49,7 +58,7 @@ async def generate(result_type: type[BaseModel], system: str, user: str, *,
         elif exc.response.status_code == 429:
             message = "The AI service is busy or out of credits. Check your account and try again."
         elif exc.response.status_code == 404:
-            message = "The AI model is unavailable. Check OPENAI_MODEL and model access, then restart."
+            message = "The AI model is unavailable. Check the model argument and model access."
         else:
             message = "The AI service could not complete this request. Please try again."
         raise TranslationError(message) from exc
