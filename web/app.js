@@ -1,6 +1,6 @@
 import {Workspace, answerOptions, confirmationStatus} from './state.mjs';
 import {createChat} from './chat.mjs';
-import {conversations, sampleInbox, exampleDraft, alignedThread} from './demo.mjs';
+import {conversations, sampleInbox, exampleDraft, alignedThread, conflictingThread} from './demo.mjs';
 
 const $ = selector => document.querySelector(selector);
 const state = new Workspace(conversations, sampleInbox);
@@ -254,7 +254,7 @@ $('#translate-form').addEventListener('submit', event => { event.preventDefault(
 $('#improve').addEventListener('click', () => run('improve'));
 $('#apply').addEventListener('click', () => { invalidate(() => state.applyProposal(), 'Proposed draft applied locally. Restore original draft is available.'); renderWorkspace(); });
 $('#restore').addEventListener('click', () => { invalidate(() => state.restoreDraft(), 'Original draft restored.'); renderWorkspace(); });
-$('#conflicting').addEventListener('click', () => { invalidate(() => state.editThread(conversations.checkout.messages), 'Conflicting sample restored. Preview its prepared thread check.'); renderWorkspace(); });
+$('#conflicting').addEventListener('click', () => { invalidate(() => state.editThread(conflictingThread), 'Conflicting sample restored. Preview its prepared thread check.'); renderWorkspace(); });
 $('#aligned').addEventListener('click', () => { invalidate(() => state.editThread(alignedThread), 'Aligned sample loaded. Its prepared result has no candidate disagreements.'); renderWorkspace(); });
 $('#close-inbox').addEventListener('click', () => $('#inbox-detail').close());
 $('#load-inbox').addEventListener('click', () => { invalidate(() => state.loadInbox(selectedInbox), 'Original snapshot loaded. Preview its prepared result.'); renderWorkspace(); $('#inbox-detail').close(); chat.openTools(); $('#translate').focus(); });

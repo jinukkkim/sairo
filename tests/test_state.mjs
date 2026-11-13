@@ -365,7 +365,7 @@ test('only another participant’s messages and replies can be converted', () =>
   assert.equal(s.canExplain('m2'), true);
   assert.equal(s.beginExplanation('m1'), null);
   s.replyLocal('m2', 'manager', 'My reply');
-  const reply = s.thread[1].replies[0];
+  const reply = s.thread.find(message => message.id === 'm2').replies[0];
   assert.equal(s.canExplain(reply.id), false);
   assert.equal(s.beginExplanation(reply.id), null);
   s.setViewer('frontend');

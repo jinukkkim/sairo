@@ -703,6 +703,754 @@
           "missing_information": []
         }
       }
+    },
+    "We’re seeing a lot of drop-off between clicking Pay and getting a response. I’d like to test whether making the waiting state clearer improves purchase conversion.": {
+      "en": {
+        "manager": {
+          "message": "A lot of people leave after clicking Pay, before they get a response. I’d like to test whether explaining what’s happening while they wait helps more of them complete a purchase.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "A lot of people leave after clicking Pay, before they get a response. I’d like to test whether explaining what’s happening while they wait helps more of them complete a purchase.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "A lot of people leave after clicking Pay, before they get a response. I’d like to test whether a clearer waiting state increases the share of people who complete a purchase.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "결제 버튼을 누른 뒤 응답을 기다리는 구간에서 이탈이 많아요. 대기 상태를 더 명확하게 보여주면 구매를 완료하는 사람의 비율이 올라가는지 실험해보고 싶어요.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "결제 버튼을 누른 뒤 응답을 기다리는 구간에서 이탈이 많아요. 대기 상태를 더 명확하게 보여주면 구매를 완료하는 사람의 비율이 올라가는지 실험해보고 싶어요.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "결제 버튼을 누른 뒤 응답을 기다리는 구간에서 이탈이 많아요. 대기 상태를 더 명확하게 보여주면 구매를 완료하는 사람의 비율이 올라가는지 실험해보고 싶어요.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "很多用户点击付款后，还没等到响应就离开了。我想测试一下，更清楚地展示等待状态，能否提高完成购买的用户比例。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "很多用户点击付款后，还没等到响应就离开了。我想测试一下，更清楚地展示等待状态，能否提高完成购买的用户比例。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "很多用户点击付款后，还没等到响应就离开了。我想测试一下，更清楚地展示等待状态，能否提高完成购买的用户比例。",
+          "missing_information": []
+        }
+      }
+    },
+    "Right now the button just shows a spinner, so it’s hard to tell whether payment is progressing or stuck. How about a non-modal inline status below the button? Since we can’t calculate a percentage, I’d use indeterminate progress.": {
+      "en": {
+        "manager": {
+          "message": "Right now the button just shows a spinning icon, so it’s hard to tell whether payment is progressing or stuck. How about a status message below the button that doesn’t open a dialog or block the screen? Since we can’t calculate how much is complete, I’d use a moving loading indicator without a percentage.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "Right now the button just shows a spinner, so it’s hard to tell whether payment is progressing or stuck. How about an inline status below the button without a modal? Since we can’t calculate a completion percentage, I’d use a loading indicator with no progress value.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "Right now the button just shows a spinner, so it’s hard to tell whether payment is progressing or stuck. How about showing the status directly below the button instead of in a modal? Since we don’t know the completion percentage, I’d use an indeterminate loading indicator.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "지금은 버튼에 스피너만 돌아서 결제가 진행 중인지 멈춘 건지 구분하기 어려워요. 모달을 띄우거나 화면을 막지 않고 버튼 아래에 상태를 표시하면 어떨까요? 진행률을 계산할 수 없으니 퍼센트 없이 움직이는 로딩 표시를 쓰겠습니다.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "지금은 버튼에 스피너만 돌아서 결제가 진행 중인지 멈춘 건지 구분하기 어려워요. 모달을 띄우거나 화면을 막지 않고 버튼 아래에 상태를 표시하면 어떨까요? 진행률을 계산할 수 없으니 퍼센트 없이 움직이는 로딩 표시를 쓰겠습니다.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "지금은 버튼에 스피너만 돌아서 결제가 진행 중인지 멈춘 건지 구분하기 어려워요. 모달을 띄우거나 화면을 막지 않고 버튼 아래에 상태를 표시하면 어떨까요? 진행률을 계산할 수 없으니 퍼센트 없이 움직이는 로딩 표시를 쓰겠습니다.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "现在按钮上只有一个旋转图标，很难判断付款是在处理中还是卡住了。我们在按钮下方直接显示状态，不弹窗也不遮挡页面，怎么样？由于无法计算完成百分比，我会使用不显示百分比的动态加载指示器。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "现在按钮上只有一个旋转图标，很难判断付款是在处理中还是卡住了。我们在按钮下方直接显示状态，不弹窗也不遮挡页面，怎么样？由于无法计算完成百分比，我会使用不显示百分比的动态加载指示器。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "现在按钮上只有一个旋转图标，很难判断付款是在处理中还是卡住了。我们在按钮下方直接显示状态，不弹窗也不遮挡页面，怎么样？由于无法计算完成百分比，我会使用不显示百分比的动态加载指示器。",
+          "missing_information": []
+        }
+      }
+    },
+    "That works. One thing, though: a gateway timeout doesn’t mean the payment failed. The payment processor may have approved it even if the response was lost, so I’ll keep the state machine in pending rather than transition it to failed.": {
+      "en": {
+        "manager": {
+          "message": "That works. One thing, though: not getting a response from the payment system in time doesn’t mean the payment failed. The payment processor may have approved it even if we lost the response, so I’ll keep the payment marked as awaiting a result rather than failed.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "That works. One thing, though: not getting a response from the payment system in time doesn’t mean the payment failed. The payment processor may have approved it even if we lost the response, so I’ll keep the payment marked as awaiting a result rather than failed.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "That works. One thing, though: a payment-system timeout doesn’t confirm failure. The payment processor may have approved the charge even if its response never arrived, so I’ll keep the payment in a waiting state instead of switching it to failed.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "좋아요. 다만 결제 시스템의 응답 시간이 초과됐다고 결제가 실패한 건 아니에요. 응답이 끊겼어도 결제 대행사에서는 승인됐을 수 있으니, 상태 머신을 failed로 전이하지 않고 pending으로 유지할게요.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "좋아요. 다만 결제 시스템의 응답 시간이 초과됐다고 결제가 실패한 건 아니에요. 응답이 끊겼어도 결제 대행사에서는 승인됐을 수 있으니, 상태 머신을 failed로 전이하지 않고 pending으로 유지할게요.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "좋아요. 다만 결제 시스템의 응답 시간이 초과됐다고 결제가 실패한 건 아니에요. 응답이 끊겼어도 결제 대행사에서는 승인됐을 수 있으니, 상태 머신을 failed로 전이하지 않고 pending으로 유지할게요.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "可以。不过，支付系统响应超时并不代表付款失败。即使响应丢失，支付服务商也可能已经批准付款，所以我会让付款保持等待结果的状态，而不切换为失败。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "可以。不过，支付系统响应超时并不代表付款失败。即使响应丢失，支付服务商也可能已经批准付款，所以我会让付款保持等待结果的状态，而不切换为失败。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "可以。不过，支付系统响应超时并不代表付款失败。即使响应丢失，支付服务商也可能已经批准付款，所以我会让付款保持等待结果的状态，而不切换为失败。",
+          "missing_information": []
+        }
+      }
+    },
+    "Then we shouldn’t send people to an error screen just because it’s taking a while. I’ll start with “Processing your payment” and switch to “Checking your payment status” after a timeout. No optimistic success UI for this flow, either.": {
+      "en": {
+        "manager": {
+          "message": "Then we shouldn’t show an error screen just because payment is taking a while. I’ll start with “Processing your payment” and switch to “Checking your payment status” if the response takes too long. I won’t show a success screen before payment is actually confirmed.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "Then we shouldn’t send people to an error screen just because payment is taking a while. I’ll start with “Processing your payment” and switch to “Checking your payment status” after a timeout. I won’t render the success state optimistically before payment is confirmed.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "Then we shouldn’t send people to an error screen just because payment is taking a while. I’ll start with “Processing your payment” and switch to “Checking your payment status” after a timeout. I won’t assume success and show the completed state before confirmation.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "그러면 오래 걸린다고 바로 오류 화면으로 보내면 안 되겠네요. 처음에는 “결제 중이에요”를 보여주고 타임아웃 이후에는 “결제 결과를 확인하고 있어요”로 바꿀게요. 이 흐름에서는 결제가 성공했다고 미리 가정해서 완료 UI를 보여주지도 않겠습니다.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "그러면 오래 걸린다고 바로 오류 화면으로 보내면 안 되겠네요. 처음에는 “결제 중이에요”를 보여주고 타임아웃 이후에는 “결제 결과를 확인하고 있어요”로 바꿀게요. 이 흐름에서는 결제가 성공했다고 미리 가정해서 완료 UI를 보여주지도 않겠습니다.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "그러면 오래 걸린다고 바로 오류 화면으로 보내면 안 되겠네요. 처음에는 “결제 중이에요”를 보여주고 타임아웃 이후에는 “결제 결과를 확인하고 있어요”로 바꿀게요. 이 흐름에서는 결제가 성공했다고 미리 가정해서 완료 UI를 보여주지도 않겠습니다.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "那就不能只因为等待时间长，就把用户带到错误页面。我会先显示“正在处理付款”，超时后改为“正在确认付款结果”。这条流程也不会在付款确认前，就提前显示成功界面。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "那就不能只因为等待时间长，就把用户带到错误页面。我会先显示“正在处理付款”，超时后改为“正在确认付款结果”。这条流程也不会在付款确认前，就提前显示成功界面。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "那就不能只因为等待时间长，就把用户带到错误页面。我会先显示“正在处理付款”，超时后改为“正在确认付款结果”。这条流程也不会在付款确认前，就提前显示成功界面。",
+          "missing_information": []
+        }
+      }
+    },
+    "What happens if someone refreshes or clicks Pay again while it’s pending? I don’t want the new UI to encourage retries that lead to duplicate charges.": {
+      "en": {
+        "manager": {
+          "message": "What happens if someone reloads the page or clicks Pay again while we’re still checking the result? I don’t want the new screen to encourage repeat attempts that charge someone twice.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "What happens if someone reloads the page or clicks Pay again while we’re still checking the result? I don’t want the new screen to encourage repeat attempts that charge someone twice.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "What happens if someone refreshes or clicks Pay again while the payment is still awaiting a result? I don’t want the new UI to encourage repeat attempts that charge someone twice.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "결제 결과를 기다리는 동안 사용자가 새로고침하거나 결제를 다시 누르면 어떻게 되나요? 새 UI 때문에 재시도가 늘어서 중복 결제가 생기면 곤란해요.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "결제 결과를 기다리는 동안 사용자가 새로고침하거나 결제를 다시 누르면 어떻게 되나요? 새 UI 때문에 재시도가 늘어서 중복 결제가 생기면 곤란해요.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "결제 결과를 기다리는 동안 사용자가 새로고침하거나 결제를 다시 누르면 어떻게 되나요? 새 UI 때문에 재시도가 늘어서 중복 결제가 생기면 곤란해요.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "如果付款还在等待结果，用户刷新页面或再次点击付款，会怎么样？我不希望新界面让用户反复尝试，导致重复扣款。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "如果付款还在等待结果，用户刷新页面或再次点击付款，会怎么样？我不希望新界面让用户反复尝试，导致重复扣款。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "如果付款还在等待结果，用户刷新页面或再次点击付款，会怎么样？我不希望新界面让用户反复尝试，导致重复扣款。",
+          "missing_information": []
+        }
+      }
+    },
+    "I’ll reuse the same idempotency key for retries of the same payment attempt. On refresh, I’ll restore the state using the existing payment ID. Payment-processor webhooks can arrive more than once, so I’ll dedup by event_id before applying them to the payment state.": {
+      "en": {
+        "manager": {
+          "message": "I’ll attach the same identifier to retries of one payment attempt so repeating the request doesn’t charge someone twice. After a refresh, I’ll look up the existing payment using its ID and restore its status. The payment processor can send the same result notification more than once, so I’ll use its event ID to make sure each notification is applied only once.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "I’ll attach the same identifier to retries of one payment attempt so repeating the request doesn’t charge someone twice. After a refresh, I’ll look up the existing payment using its ID and restore its status. The payment processor can send the same result notification more than once, so I’ll use its event ID to make sure each notification is applied only once.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "I’ll give retries of one payment attempt the same identifier so they aren’t processed as separate payments. On refresh, I’ll restore the payment state from its existing ID. The payment processor may repeat a result notification, so I’ll identify duplicates by event ID before updating the payment state.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "같은 결제 시도를 다시 요청할 때는 동일한 멱등성 키를 써서 중복 처리되지 않게 할게요. 새로고침하면 기존 결제 ID로 상태를 복원하겠습니다. 결제 대행사가 웹훅으로 같은 결과 알림을 여러 번 보낼 수 있으니, event_id로 중복을 제거한 뒤 결제 상태에 반영할게요.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "같은 결제 시도를 다시 요청할 때는 동일한 멱등성 키를 써서 중복 처리되지 않게 할게요. 새로고침하면 기존 결제 ID로 상태를 복원하겠습니다. 결제 대행사가 웹훅으로 같은 결과 알림을 여러 번 보낼 수 있으니, event_id로 중복을 제거한 뒤 결제 상태에 반영할게요.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "같은 결제 시도를 다시 요청할 때는 동일한 멱등성 키를 써서 중복 처리되지 않게 할게요. 새로고침하면 기존 결제 ID로 상태를 복원하겠습니다. 결제 대행사가 웹훅으로 같은 결과 알림을 여러 번 보낼 수 있으니, event_id로 중복을 제거한 뒤 결제 상태에 반영할게요.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "同一次付款的重试会使用相同的识别码，避免重复处理。刷新后，我会用已有的付款 ID 恢复状态。支付服务商可能多次发送同一条结果通知，所以我会先按事件 ID 去重，再更新付款状态。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "同一次付款的重试会使用相同的识别码，避免重复处理。刷新后，我会用已有的付款 ID 恢复状态。支付服务商可能多次发送同一条结果通知，所以我会先按事件 ID 去重，再更新付款状态。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "同一次付款的重试会使用相同的识别码，避免重复处理。刷新后，我会用已有的付款 ID 恢复状态。支付服务商可能多次发送同一条结果通知，所以我会先按事件 ID 去重，再更新付款状态。",
+          "missing_information": []
+        }
+      }
+    },
+    "Then please keep focus on the button while it’s pending and only block additional submissions. Announce the status copy through a polite live region. I’d rather not move focus on every update or have the screen reader keep announcing the spinner.": {
+      "en": {
+        "manager": {
+          "message": "Then please keep keyboard users on the same button while payment is waiting and only prevent another submission. Have screen readers announce the status message after they finish what they’re already reading. Please don’t move users to a different place on each update or repeatedly read out the loading indicator.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "Then please keep keyboard focus on the button while payment is pending and only prevent additional submissions. Announce the status copy with aria-live=\"polite\", after the screen reader finishes its current speech. Please don’t move focus on every update or have the spinner announced repeatedly.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "Then please preserve keyboard focus on the button while payment is pending and prevent additional submissions. Announce the status copy when the screen reader has finished its current speech. I don’t want focus to jump on each update or the spinner to be announced repeatedly.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "그러면 대기 중에도 버튼의 키보드 포커스는 유지하고 추가 제출만 막아주세요. 상태 문구는 aria-live=\"polite\"로 전달해서 스크린리더가 읽던 내용을 마친 뒤 알려주도록 하고요. 상태가 바뀔 때마다 포커스를 옮기거나 스피너를 반복해서 읽히게 하지는 않았으면 해요.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "그러면 대기 중에도 버튼의 키보드 포커스는 유지하고 추가 제출만 막아주세요. 상태 문구는 aria-live=\"polite\"로 전달해서 스크린리더가 읽던 내용을 마친 뒤 알려주도록 하고요. 상태가 바뀔 때마다 포커스를 옮기거나 스피너를 반복해서 읽히게 하지는 않았으면 해요.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "그러면 대기 중에도 버튼의 키보드 포커스는 유지하고 추가 제출만 막아주세요. 상태 문구는 aria-live=\"polite\"로 전달해서 스크린리더가 읽던 내용을 마친 뒤 알려주도록 하고요. 상태가 바뀔 때마다 포커스를 옮기거나 스피너를 반복해서 읽히게 하지는 않았으면 해요.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "那请在等待期间保持按钮上的键盘焦点，只阻止重复提交。状态文案等屏幕阅读器读完当前内容后再播报。不要每次更新都移动焦点，也不要让屏幕阅读器反复播报加载图标。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "那请在等待期间保持按钮上的键盘焦点，只阻止重复提交。状态文案等屏幕阅读器读完当前内容后再播报。不要每次更新都移动焦点，也不要让屏幕阅读器反复播报加载图标。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "那请在等待期间保持按钮上的键盘焦点，只阻止重复提交。状态文案等屏幕阅读器读完当前内容后再播报。不要每次更新都移动焦点，也不要让屏幕阅读器反复播报加载图标。",
+          "missing_information": []
+        }
+      }
+    },
+    "Yep. I’ll use aria-disabled instead of native disabled and guard against re-entry in the submit handler. I’ll hide the spinner from the accessibility tree and announce only the status copy. After restoring the payment, I’ll poll with backoff and use the server-verified processor status as the source of truth.": {
+      "en": {
+        "manager": {
+          "message": "Yep. I’ll mark the button as unavailable in a way that keeps keyboard focus on it, and also block repeat requests in the code that handles submission. I’ll keep screen readers from reading the spinner and announce only the status text. After restoring the payment, I’ll check its status at gradually longer intervals and use the payment processor’s status verified by our server as the authoritative result.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "Yep. I’ll use aria-disabled to mark the button unavailable without removing keyboard focus, and guard against duplicate execution in the submit handler. I’ll hide the spinner from assistive technology and announce only the status copy. After restoring the payment, I’ll poll at increasing intervals and use the processor status verified by the server as the authoritative result.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "Yep. I’ll mark the button unavailable without removing its keyboard focus, and also prevent another submission in the event handler. I’ll exclude the spinner from what assistive technology reads and announce only the status copy. After restoring the payment, I’ll check for updates at increasing intervals and treat the processor status verified by our server as authoritative.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "네. 네이티브 disabled 대신 aria-disabled를 쓰고, 제출 핸들러에서도 중복 실행을 막을게요. 스피너는 접근성 트리에서 제외하고 상태 문구만 읽히게 하겠습니다. 결제 상태를 복원한 뒤에는 조회 간격을 점점 늘리는 백오프를 적용하고, 서버에서 확인한 결제 대행사의 상태를 최종 기준으로 사용할게요.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "네. 네이티브 disabled 대신 aria-disabled를 쓰고, 제출 핸들러에서도 중복 실행을 막을게요. 스피너는 접근성 트리에서 제외하고 상태 문구만 읽히게 하겠습니다. 결제 상태를 복원한 뒤에는 조회 간격을 점점 늘리는 백오프를 적용하고, 서버에서 확인한 결제 대행사의 상태를 최종 기준으로 사용할게요.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "네. 네이티브 disabled 대신 aria-disabled를 쓰고, 제출 핸들러에서도 중복 실행을 막을게요. 스피너는 접근성 트리에서 제외하고 상태 문구만 읽히게 하겠습니다. 결제 상태를 복원한 뒤에는 조회 간격을 점점 늘리는 백오프를 적용하고, 서버에서 확인한 결제 대행사의 상태를 최종 기준으로 사용할게요.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "好的。我会用既能标记按钮不可用、又能保留键盘焦点的方式，并在提交处理代码中阻止重复执行。屏幕阅读器不会读到加载图标，只播报状态文案。恢复付款后，我会逐渐拉长状态查询间隔，并以服务器核实过的支付服务商状态为准。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "好的。我会用既能标记按钮不可用、又能保留键盘焦点的方式，并在提交处理代码中阻止重复执行。屏幕阅读器不会读到加载图标，只播报状态文案。恢复付款后，我会逐渐拉长状态查询间隔，并以服务器核实过的支付服务商状态为准。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "好的。我会用既能标记按钮不可用、又能保留键盘焦点的方式，并在提交处理代码中阻止重复执行。屏幕阅读器不会读到加载图标，只播报状态文案。恢复付款后，我会逐渐拉长状态查询间隔，并以服务器核实过的支付服务商状态为准。",
+          "missing_information": []
+        }
+      }
+    },
+    "Let’s apply idempotency and state restoration to the control group too. Only the waiting-state presentation should differ in this experiment so we can isolate its effect.": {
+      "en": {
+        "manager": {
+          "message": "Let’s give the group using the current screen the same protection against duplicate payment requests and the same ability to recover payment status. Only how we show the waiting state should change, so we can measure that change’s effect on its own.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "Let’s apply the same idempotency handling and state restoration to the group using the existing UI too. Only the waiting-state presentation should differ so we can measure that change’s effect separately.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "Let’s apply the same duplicate-payment protection and payment-state recovery to the group using the existing UI too. Only the waiting-state presentation should differ so we can measure its effect separately.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "기존 화면을 쓰는 대조군에도 같은 결제 요청의 중복 처리 방지와 상태 복원을 똑같이 적용하죠. 이번 실험에서는 대기 상태를 보여주는 방식만 달라야 그 효과를 따로 확인할 수 있어요.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "기존 화면을 쓰는 대조군에도 같은 결제 요청의 중복 처리 방지와 상태 복원을 똑같이 적용하죠. 이번 실험에서는 대기 상태를 보여주는 방식만 달라야 그 효과를 따로 확인할 수 있어요.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "기존 화면을 쓰는 대조군에도 같은 결제 요청의 중복 처리 방지와 상태 복원을 똑같이 적용하죠. 이번 실험에서는 대기 상태를 보여주는 방식만 달라야 그 효과를 따로 확인할 수 있어요.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "使用现有页面的对照组也要采用相同的重复付款请求防护和付款状态恢复机制。这次实验只改变等待状态的呈现方式，才能单独衡量它的效果。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "使用现有页面的对照组也要采用相同的重复付款请求防护和付款状态恢复机制。这次实验只改变等待状态的呈现方式，才能单独衡量它的效果。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "使用现有页面的对照组也要采用相同的重复付款请求防护和付款状态恢复机制。这次实验只改变等待状态的呈现方式，才能单独衡量它的效果。",
+          "missing_information": []
+        }
+      }
+    },
+    "Sounds good. I’ll change only the progress indicator and status copy in the treatment, keeping the button placement and visual hierarchy intact. I’ll expose the error state and retry action only after failure is confirmed.": {
+      "en": {
+        "manager": {
+          "message": "Sounds good. In the new-screen group, I’ll change only the loading indicator and status text, keeping the button in the same place and preserving which elements draw attention first. I’ll show an error and a retry option only after we know the payment failed.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "Sounds good. For users assigned the new UI, I’ll change only the progress indicator and status copy, preserving the button placement and the relative visual emphasis of the elements. I’ll show the error state and retry action only after failure is confirmed.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "Sounds good. In the group seeing the new UI, I’ll change only the progress indicator and status copy, keeping the button placement and visual hierarchy intact. I’ll show the error state and retry action only after failure is confirmed.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "좋아요. 새 화면을 쓰는 실험군에서는 로딩 표시와 상태 문구만 바꾸고, 버튼 위치와 요소들이 시선을 끄는 우선순위는 유지하겠습니다. 실패가 확정된 뒤에만 오류 상태와 재시도 액션을 보여줄게요.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "좋아요. 새 화면을 쓰는 실험군에서는 로딩 표시와 상태 문구만 바꾸고, 버튼 위치와 요소들이 시선을 끄는 우선순위는 유지하겠습니다. 실패가 확정된 뒤에만 오류 상태와 재시도 액션을 보여줄게요.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "좋아요. 새 화면을 쓰는 실험군에서는 로딩 표시와 상태 문구만 바꾸고, 버튼 위치와 요소들이 시선을 끄는 우선순위는 유지하겠습니다. 실패가 확정된 뒤에만 오류 상태와 재시도 액션을 보여줄게요.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "好的。新页面组只修改加载指示器和状态文案，按钮位置以及各元素吸引注意力的先后顺序保持不变。只有确认付款失败后，才显示错误状态和重试操作。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "好的。新页面组只修改加载指示器和状态文案，按钮位置以及各元素吸引注意力的先后顺序保持不变。只有确认付款失败后，才显示错误状态和重试操作。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "好的。新页面组只修改加载指示器和状态文案，按钮位置以及各元素吸引注意力的先后顺序保持不变。只有确认付款失败后，才显示错误状态和重试操作。",
+          "missing_information": []
+        }
+      }
+    },
+    "Please use user-level sticky assignment rather than session-level assignment. The primary metric is purchase CVR among checkout entrants, with AOV and duplicate authorization rate as guardrails.": {
+      "en": {
+        "manager": {
+          "message": "Please keep each user assigned to the same version across visits rather than assigning a version again on every visit. Our main measure is the share of people who enter checkout and complete a purchase. We’ll also watch average order value and the rate of duplicate payment approvals for deterioration.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "Please persist assignment per user rather than reassigning each session. The main metric is completed purchases as a share of users who enter checkout. Average order value and duplicate payment authorization rate are checks for harmful side effects.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "Please assign each person to one version and keep it the same across visits, rather than changing their assignment each session. We’ll mainly measure the share of checkout visitors who complete a purchase, and also check that average order value and the rate of duplicate payment approvals don’t get worse.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "방문 세션마다 새로 배정하지 말고, 사용자 단위로 같은 실험군에 계속 속하도록 고정해주세요. 핵심 지표는 결제창에 진입한 사용자 중 구매를 완료한 비율로 두고, 평균 주문 금액과 중복 승인율이 나빠지지 않는지도 함께 확인하겠습니다.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "방문 세션마다 새로 배정하지 말고, 사용자 단위로 같은 실험군에 계속 속하도록 고정해주세요. 핵심 지표는 결제창에 진입한 사용자 중 구매를 완료한 비율로 두고, 평균 주문 금액과 중복 승인율이 나빠지지 않는지도 함께 확인하겠습니다.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "방문 세션마다 새로 배정하지 말고, 사용자 단위로 같은 실험군에 계속 속하도록 고정해주세요. 핵심 지표는 결제창에 진입한 사용자 중 구매를 완료한 비율로 두고, 평균 주문 금액과 중복 승인율이 나빠지지 않는지도 함께 확인하겠습니다.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "请按用户固定分组，让同一个人在多次访问时始终看到同一版本，不要每次会话重新分组。主要指标是进入结账流程的用户中完成购买的比例，同时监控平均订单金额和重复付款批准率是否恶化。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "请按用户固定分组，让同一个人在多次访问时始终看到同一版本，不要每次会话重新分组。主要指标是进入结账流程的用户中完成购买的比例，同时监控平均订单金额和重复付款批准率是否恶化。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "请按用户固定分组，让同一个人在多次访问时始终看到同一版本，不要每次会话重新分组。主要指标是进入结账流程的用户中完成购买的比例，同时监控平均订单金额和重复付款批准率是否恶化。",
+          "missing_information": []
+        }
+      }
+    },
+    "Then I’ll count conversions from the server-side payment-confirmed event, not the success-screen impression. That way an approved payment won’t be missed just because someone closed the browser.": {
+      "en": {
+        "manager": {
+          "message": "Then I’ll count a purchase when our server records confirmed payment, rather than when the success screen is displayed. That way we won’t miss an approved payment just because someone closed the browser.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "Then I’ll count a purchase when our server records confirmed payment, rather than when the success screen is displayed. That way we won’t miss an approved payment just because someone closed the browser.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "Then I’ll count completed purchases from the server’s payment confirmation, rather than from views of the success screen. That way an approved payment won’t be left out if someone closes the browser.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "그러면 전환은 완료 화면이 표시된 이벤트가 아니라 서버의 결제 확정 이벤트로 집계할게요. 사용자가 브라우저를 닫았다는 이유로 실제 승인된 결제가 누락되지 않도록요.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "그러면 전환은 완료 화면이 표시된 이벤트가 아니라 서버의 결제 확정 이벤트로 집계할게요. 사용자가 브라우저를 닫았다는 이유로 실제 승인된 결제가 누락되지 않도록요.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "그러면 전환은 완료 화면이 표시된 이벤트가 아니라 서버의 결제 확정 이벤트로 집계할게요. 사용자가 브라우저를 닫았다는 이유로 실제 승인된 결제가 누락되지 않도록요.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "那我会根据服务器端的付款确认事件统计购买，而不是根据成功页面的展示事件。这样就不会因为用户关闭浏览器，而漏掉实际已经批准的付款。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "那我会根据服务器端的付款确认事件统计购买，而不是根据成功页面的展示事件。这样就不会因为用户关闭浏览器，而漏掉实际已经批准的付款。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "那我会根据服务器端的付款确认事件统计购买，而不是根据成功页面的展示事件。这样就不会因为用户关闭浏览器，而漏掉实际已经批准的付款。",
+          "missing_information": []
+        }
+      }
+    },
+    "Yes, let’s use that. I’ll size the sample for a 3% relative MDE. We won’t stop early just because the interim results look good, and if we detect SRM, we’ll hold off on interpreting uplift until we understand the cause.": {
+      "en": {
+        "manager": {
+          "message": "Yes, let’s use that. I’ll calculate how many users we need to detect a relative improvement of 3% or more. We won’t end the test early just because results look good partway through. If the number of users in each version differs abnormally from the planned split, we’ll wait to judge the improvement until we understand why.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "Yes, let’s use that. I’ll calculate the sample size for a minimum detectable relative improvement of 3%. We won’t stop early based on favorable interim results, and if group counts deviate abnormally from the allocation ratio, we’ll pause interpretation of the improvement until we understand the cause.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "Yes, let’s use that. I’ll calculate the sample size needed to detect at least a 3% relative improvement. We won’t stop the experiment just because the early numbers look good, and if the user counts across versions deviate abnormally from the planned split, we’ll hold off on judging the improvement until we understand the cause.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "네, 그 기준으로 가죠. 상대적으로 3% 이상 개선되는 효과를 감지할 수 있도록 필요한 표본 수를 산정할게요. 중간 결과가 좋아 보인다는 이유로 일찍 종료하지는 않고, 실험군별 사용자 수가 계획한 배정 비율에서 비정상적으로 벗어나는 SRM이 확인되면 원인을 파악하기 전까지 개선 효과에 대한 해석은 보류하겠습니다.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "네, 그 기준으로 가죠. 상대적으로 3% 이상 개선되는 효과를 감지할 수 있도록 필요한 표본 수를 산정할게요. 중간 결과가 좋아 보인다는 이유로 일찍 종료하지는 않고, 실험군별 사용자 수가 계획한 배정 비율에서 비정상적으로 벗어나는 SRM이 확인되면 원인을 파악하기 전까지 개선 효과에 대한 해석은 보류하겠습니다.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "네, 그 기준으로 가죠. 상대적으로 3% 이상 개선되는 효과를 감지할 수 있도록 필요한 표본 수를 산정할게요. 중간 결과가 좋아 보인다는 이유로 일찍 종료하지는 않고, 실험군별 사용자 수가 계획한 배정 비율에서 비정상적으로 벗어나는 SRM이 확인되면 원인을 파악하기 전까지 개선 효과에 대한 해석은 보류하겠습니다.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "对，就按这个标准。我会计算检测至少 3% 相对改善所需的样本量。不会只因为中途结果好看就提前结束实验。如果各组用户数量异常偏离原定分配比例，我们会先查明原因，再判断改善效果。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "对，就按这个标准。我会计算检测至少 3% 相对改善所需的样本量。不会只因为中途结果好看就提前结束实验。如果各组用户数量异常偏离原定分配比例，我们会先查明原因，再判断改善效果。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "对，就按这个标准。我会计算检测至少 3% 相对改善所需的样本量。不会只因为中途结果好看就提前结束实验。如果各组用户数量异常偏离原定分配比例，我们会先查明原因，再判断改善效果。",
+          "missing_information": []
+        }
+      }
+    },
+    "We’ve agreed on the payment waiting-state experiment in #team-checkout. Only the waiting-state UI will differ between groups; duplicate-payment protection and state recovery will be shared.": {
+      "en": {
+        "manager": {
+          "message": "We’ve agreed on the payment waiting-state test in #team-checkout. Only what people see while waiting will differ between groups. Both groups will have the same protection against duplicate payments and the same way to recover payment status.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "We’ve agreed on the payment waiting-state test in #team-checkout. Only what people see while waiting will differ between groups. Both groups will have the same protection against duplicate payments and the same way to recover payment status.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "We’ve agreed on the payment waiting-state experiment in #team-checkout. Only the waiting-state presentation will differ. Both groups will use the same duplicate-payment protection and payment-state recovery.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "#team-checkout에서 결제 대기 화면 실험 방향을 정했어요. 두 그룹에서는 대기 상태를 보여주는 UI만 다르게 하고, 중복 결제 방지와 결제 상태 복원은 동일하게 적용합니다.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "#team-checkout에서 결제 대기 화면 실험 방향을 정했어요. 두 그룹에서는 대기 상태를 보여주는 UI만 다르게 하고, 중복 결제 방지와 결제 상태 복원은 동일하게 적용합니다.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "#team-checkout에서 결제 대기 화면 실험 방향을 정했어요. 두 그룹에서는 대기 상태를 보여주는 UI만 다르게 하고, 중복 결제 방지와 결제 상태 복원은 동일하게 적용합니다.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "我们已经在 #team-checkout 确定了付款等待状态实验的方向。两组只在等待状态的界面展示上有区别，重复付款防护和付款状态恢复机制保持一致。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "我们已经在 #team-checkout 确定了付款等待状态实验的方向。两组只在等待状态的界面展示上有区别，重复付款防护和付款状态恢复机制保持一致。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "我们已经在 #team-checkout 确定了付款等待状态实验的方向。两组只在等待状态的界面展示上有区别，重复付款防护和付款状态恢复机制保持一致。",
+          "missing_information": []
+        }
+      }
+    },
+    "Got it. I’ll keep the shared payment handling the same in both groups and count purchases from server-confirmed payments.": {
+      "en": {
+        "manager": {
+          "message": "Got it. I’ll use the same payment handling for both groups and count purchases when our server confirms payment.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "Got it. I’ll use the same payment handling for both groups and count purchases when our server confirms payment.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "Got it. I’ll keep payment handling identical in both groups and count purchases from payment confirmations recorded by our server.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "알겠습니다. 두 그룹의 공통 결제 처리는 동일하게 유지하고, 구매는 서버에서 확정된 결제를 기준으로 집계할게요.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "알겠습니다. 두 그룹의 공통 결제 처리는 동일하게 유지하고, 구매는 서버에서 확정된 결제를 기준으로 집계할게요.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "알겠습니다. 두 그룹의 공통 결제 처리는 동일하게 유지하고, 구매는 서버에서 확정된 결제를 기준으로 집계할게요.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "明白了。我会让两组使用相同的付款处理逻辑，并按服务器确认的付款统计购买。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "明白了。我会让两组使用相同的付款处理逻辑，并按服务器确认的付款统计购买。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "明白了。我会让两组使用相同的付款处理逻辑，并按服务器确认的付款统计购买。",
+          "missing_information": []
+        }
+      }
+    },
+    "Sam, can you share the inline waiting-state mockup when it’s ready? Let’s keep the button placement unchanged.": {
+      "en": {
+        "manager": {
+          "message": "Sam, can you share the design showing the waiting status within the payment screen when it’s ready? Let’s keep the button in the same place.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "Sam, can you share the design showing the waiting status within the payment screen when it’s ready? Let’s keep the button in the same place.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "Sam, can you share the inline waiting-state mockup when it’s ready? Let’s keep the button in the same place.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "Sam, 결제 화면 안에 대기 상태를 표시하는 목업이 준비되면 공유해줄 수 있나요? 버튼 위치는 그대로 유지하죠.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "Sam, 결제 화면 안에 대기 상태를 표시하는 목업이 준비되면 공유해줄 수 있나요? 버튼 위치는 그대로 유지하죠.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "Sam, 결제 화면 안에 대기 상태를 표시하는 목업이 준비되면 공유해줄 수 있나요? 버튼 위치는 그대로 유지하죠.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "Sam，在付款页面内展示等待状态的设计稿准备好后，能分享一下吗？按钮的位置保持不变吧。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "Sam，在付款页面内展示等待状态的设计稿准备好后，能分享一下吗？按钮的位置保持不变吧。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "Sam，在付款页面内展示等待状态的设计稿准备好后，能分享一下吗？按钮的位置保持不变吧。",
+          "missing_information": []
+        }
+      }
+    },
+    "Will do. I’ll include the processing, checking and confirmed-failure states, with the retry action shown only after failure is confirmed.": {
+      "en": {
+        "manager": {
+          "message": "Will do. I’ll show how the screen looks while payment is processing, while we’re checking the result and after a confirmed failure. The option to retry will appear only once we know payment failed.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "Will do. I’ll show how the screen looks while payment is processing, while we’re checking the result and after a confirmed failure. The option to retry will appear only once we know payment failed.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "Will do. I’ll include the processing, result-checking and confirmed-failure states. The retry action will appear only after failure is confirmed.",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "네. 결제 처리 중, 결과 확인 중, 실패가 확정된 상태를 포함하고, 재시도 액션은 실패가 확정된 뒤에만 보여줄게요.",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "네. 결제 처리 중, 결과 확인 중, 실패가 확정된 상태를 포함하고, 재시도 액션은 실패가 확정된 뒤에만 보여줄게요.",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "네. 결제 처리 중, 결과 확인 중, 실패가 확정된 상태를 포함하고, 재시도 액션은 실패가 확정된 뒤에만 보여줄게요.",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "好的。我会包含付款处理中、结果确认中以及已确认失败的状态，只有确认失败后才显示重试操作。",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "好的。我会包含付款处理中、结果确认中以及已确认失败的状态，只有确认失败后才显示重试操作。",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "好的。我会包含付款处理中、结果确认中以及已确认失败的状态，只有确认失败后才显示重试操作。",
+          "missing_information": []
+        }
+      }
     }
   },
   "unknown_translation": {
@@ -874,19 +1622,19 @@
         {
           "id": "d1",
           "profile_id": "manager",
-          "text": "For this review, payment is the only screen in scope. Cart and address can wait."
+          "text": "Sam, can you share the inline waiting-state mockup when it’s ready? Let’s keep the button placement unchanged."
         },
         {
           "id": "d2",
           "profile_id": "designer",
-          "text": "Agreed: payment only. I’ll show inline retry messages for failed payments, with cart and address unchanged."
+          "text": "Will do. I’ll include the processing, checking and confirmed-failure states, with the retry action shown only after failure is confirmed."
         }
       ],
       "result": {
         "interpretations": [
           {
             "profile_id": "manager",
-            "understanding": "Only payment is included in this review. Do not change the cart or address screens for this work.",
+            "understanding": "Share the inline payment waiting-state mockup when ready and preserve button placement.",
             "insufficient_evidence": false,
             "source_message_ids": [
               "d1"
@@ -894,7 +1642,7 @@
           },
           {
             "profile_id": "designer",
-            "understanding": "Sam agrees to payment-only scope. Failed payments will get a retry message beside the relevant form; cart and address remain unchanged.",
+            "understanding": "Include processing, checking and confirmed-failure states; show the retry action only after confirmed failure.",
             "insufficient_evidence": false,
             "source_message_ids": [
               "d2"
@@ -909,24 +1657,19 @@
         {
           "id": "p1",
           "profile_id": "manager",
-          "text": "A quick home for decisions and progress. Bring the discussion to #team-checkout; share the outcome here."
+          "text": "We’ve agreed on the payment waiting-state experiment in #team-checkout. Only the waiting-state UI will differ between groups; duplicate-payment protection and state recovery will be shared."
         },
         {
           "id": "p2",
-          "profile_id": "designer",
-          "text": "The updated component library is ready for review. Error, loading and empty states are included."
-        },
-        {
-          "id": "p3",
           "profile_id": "frontend",
-          "text": "Thanks! I’ll use these states for the next checkout iteration."
+          "text": "Got it. I’ll keep the shared payment handling the same in both groups and count purchases from server-confirmed payments."
         }
       ],
       "result": {
         "interpretations": [
           {
             "profile_id": "manager",
-            "understanding": "Use this channel to share decisions and progress. Discuss the details in team-checkout, then post the outcome here.",
+            "understanding": "The payment waiting-state experiment is agreed in team-checkout. Only waiting-state UI differs between groups; duplicate-payment protection and state recovery are shared.",
             "insufficient_evidence": false,
             "source_message_ids": [
               "p1"
@@ -934,15 +1677,7 @@
           },
           {
             "profile_id": "frontend",
-            "understanding": "Jamie intends to use those prepared error, loading and empty states in the next checkout update.",
-            "insufficient_evidence": false,
-            "source_message_ids": [
-              "p3"
-            ]
-          },
-          {
-            "profile_id": "designer",
-            "understanding": "Sam has prepared reusable interface components for review, including how the screen looks when something fails, is loading or has no content.",
+            "understanding": "Keep payment handling identical in both groups and count purchases from server-confirmed payments.",
             "insufficient_evidence": false,
             "source_message_ids": [
               "p2"
@@ -994,6 +1729,113 @@
             "insufficient_evidence": false,
             "source_message_ids": [
               "a3"
+            ]
+          }
+        ],
+        "disagreements": []
+      }
+    },
+    {
+      "messages": [
+        {
+          "id": "m1",
+          "profile_id": "manager",
+          "text": "We’re seeing a lot of drop-off between clicking Pay and getting a response. I’d like to test whether making the waiting state clearer improves purchase conversion."
+        },
+        {
+          "id": "m3",
+          "profile_id": "designer",
+          "text": "Right now the button just shows a spinner, so it’s hard to tell whether payment is progressing or stuck. How about a non-modal inline status below the button? Since we can’t calculate a percentage, I’d use indeterminate progress."
+        },
+        {
+          "id": "m2",
+          "profile_id": "frontend",
+          "text": "That works. One thing, though: a gateway timeout doesn’t mean the payment failed. The payment processor may have approved it even if the response was lost, so I’ll keep the state machine in pending rather than transition it to failed."
+        },
+        {
+          "id": "m6",
+          "profile_id": "designer",
+          "text": "Then we shouldn’t send people to an error screen just because it’s taking a while. I’ll start with “Processing your payment” and switch to “Checking your payment status” after a timeout. No optimistic success UI for this flow, either."
+        },
+        {
+          "id": "m4",
+          "profile_id": "manager",
+          "text": "What happens if someone refreshes or clicks Pay again while it’s pending? I don’t want the new UI to encourage retries that lead to duplicate charges."
+        },
+        {
+          "id": "m5",
+          "profile_id": "frontend",
+          "text": "I’ll reuse the same idempotency key for retries of the same payment attempt. On refresh, I’ll restore the state using the existing payment ID. Payment-processor webhooks can arrive more than once, so I’ll dedup by event_id before applying them to the payment state."
+        },
+        {
+          "id": "m7",
+          "profile_id": "designer",
+          "text": "Then please keep focus on the button while it’s pending and only block additional submissions. Announce the status copy through a polite live region. I’d rather not move focus on every update or have the screen reader keep announcing the spinner."
+        },
+        {
+          "id": "m8",
+          "profile_id": "frontend",
+          "text": "Yep. I’ll use aria-disabled instead of native disabled and guard against re-entry in the submit handler. I’ll hide the spinner from the accessibility tree and announce only the status copy. After restoring the payment, I’ll poll with backoff and use the server-verified processor status as the source of truth."
+        },
+        {
+          "id": "m9",
+          "profile_id": "manager",
+          "text": "Let’s apply idempotency and state restoration to the control group too. Only the waiting-state presentation should differ in this experiment so we can isolate its effect."
+        },
+        {
+          "id": "m10",
+          "profile_id": "designer",
+          "text": "Sounds good. I’ll change only the progress indicator and status copy in the treatment, keeping the button placement and visual hierarchy intact. I’ll expose the error state and retry action only after failure is confirmed."
+        },
+        {
+          "id": "m11",
+          "profile_id": "manager",
+          "text": "Please use user-level sticky assignment rather than session-level assignment. The primary metric is purchase CVR among checkout entrants, with AOV and duplicate authorization rate as guardrails."
+        },
+        {
+          "id": "m12",
+          "profile_id": "frontend",
+          "text": "Then I’ll count conversions from the server-side payment-confirmed event, not the success-screen impression. That way an approved payment won’t be missed just because someone closed the browser."
+        },
+        {
+          "id": "m13",
+          "profile_id": "manager",
+          "text": "Yes, let’s use that. I’ll size the sample for a 3% relative MDE. We won’t stop early just because the interim results look good, and if we detect SRM, we’ll hold off on interpreting uplift until we understand the cause."
+        }
+      ],
+      "result": {
+        "interpretations": [
+          {
+            "profile_id": "manager",
+            "understanding": "Test only the payment waiting-state presentation. Keep duplicate-request protection and state recovery in both groups, use persistent user-level assignment and server-confirmed purchases, monitor guardrails, and investigate allocation imbalance before interpreting improvement.",
+            "insufficient_evidence": false,
+            "source_message_ids": [
+              "m1",
+              "m9",
+              "m11",
+              "m13"
+            ]
+          },
+          {
+            "profile_id": "frontend",
+            "understanding": "A timeout leaves payment pending. Reuse the payment attempt’s idempotency key, restore its existing state, deduplicate processor events, preserve accessibility and verify the processor status on the server. Count purchases from server payment confirmation.",
+            "insufficient_evidence": false,
+            "source_message_ids": [
+              "m2",
+              "m5",
+              "m8",
+              "m12"
+            ]
+          },
+          {
+            "profile_id": "designer",
+            "understanding": "Use an inline indeterminate waiting state with status copy and no premature success. Preserve keyboard focus, announce status updates politely, keep button placement and visual hierarchy, and show retry only after confirmed failure.",
+            "insufficient_evidence": false,
+            "source_message_ids": [
+              "m3",
+              "m6",
+              "m7",
+              "m10"
             ]
           }
         ],

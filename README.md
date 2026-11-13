@@ -24,6 +24,15 @@ source, person and language; edits discard old explanations. New or edited text
 gets a demo notice rather than an unrelated explanation. The original is never
 overwritten.
 
+`team-checkout` contains a 13-message English conversation about payment waiting
+states: product defines the experiment, design specifies progress and accessible
+status updates, and engineering handles uncertain payment outcomes and safe retries.
+Prepared versions explain unfamiliar terminology for the reader's role while
+preserving the original information order. Jamie receives Korean; Alex and Sam
+receive English.
+`product-updates` and the Alex–Sam DM each contain two short follow-up messages
+about the same experiment.
+
 **Clarity tools** opens the four prepared demonstration workflows in a side panel.
 **Check before sending** copies the current composer text into the draft review;
 **Use draft in composer** explicitly brings an edited draft back without sending.
@@ -71,8 +80,11 @@ input snapshot; opening an Inbox item does not automatically preview a result or
 
 The local analysis endpoints return prepared results after a 0.7 second delay.
 Use the seeded messages, **Use example**, **Conflicting sample** and **Aligned
-sample** for the complete demonstration. Prepared results cover 16 source texts,
-three viewer roles with English/Korean output, two drafts and four threads.
+sample** for the complete demonstration. Prepared results cover 33 source texts,
+three viewer roles with English/Korean output, two drafts and five threads.
+The earlier screen-scope discussion is retained only as the explicit conflicting
+sample; the active payment conversation and its Inbox sample have no prepared
+disagreement candidates.
 
 Prepared findings bind to exact source text or thread snapshots. New/edited
 messages get a localized demo notice; unknown drafts are explicitly not reviewed,
