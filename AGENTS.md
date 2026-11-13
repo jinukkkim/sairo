@@ -64,11 +64,20 @@ is true of *this* repo belongs here:
 ## Project facts
 
 - **Commands**
-  - (added with the code PR)
+  - Install: `uv sync`
+  - Run: `uv run uvicorn server.app:app --host 127.0.0.1 --port 8000`
+  - Verify: `uv run pytest -q` and `node --test tests/*.mjs`
 - **Copy** — UI text is English (the contest runs in English); identifiers
   are English.
-- **Demo scope** — AI calls are real. Everything around them is faked on
-  purpose: profiles are hardcoded, threads are scripted, no auth or DB.
+- **Demo scope** — Current app actions use prepared local results with simulated
+  loading. Never call an external AI service, even if keys are configured. Profiles
+  are hardcoded, threads are scripted, no auth or DB. OpenAI core code is retained
+  for a future integration; enabling live calls requires a new user request.
+- **Participant views** — One shared room. Alex and Sam receive simplified English;
+  Jamie receives simplified Korean translation. Language follows the person, with
+  no independent language selector in the demo UI. Current viewer in the sidebar
+  is the only person switch. Own messages/replies have no conversion button.
+  Rewrites preserve direct speaker voice without role prefaces or added advice.
 - **Boundaries** — `core` never imports from `server` or `web`, so the
   translation logic can move to a real messenger integration (e.g. Slack
   Bolt for Python) unchanged.
