@@ -1,13 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {conversations, alignedThread, exampleDraft, sampleInbox} from '../web/demo.mjs';
+import {conversations, alignedThread, conflictingThread, exampleDraft, sampleInbox} from '../web/demo.mjs';
 
 const fixtures = JSON.parse(await readFile(new URL('../server/demo-results.json', import.meta.url), 'utf8'));
 const profiles = ['manager', 'frontend', 'designer'];
 
 test('every seeded message and draft has prepared wording for all roles and languages', () => {
-  const sources = [exampleDraft, ...alignedThread.map(m => m.text), ...sampleInbox.filter(item => item.snapshot.message).map(item => item.snapshot.message)];
+  const sources = [exampleDraft, ...alignedThread.map(m => m.text), ...conflictingThread.map(m => m.text), ...sampleInbox.filter(item => item.snapshot.message).map(item => item.snapshot.message)];
   for (const conversation of Object.values(conversations)) {
     sources.push(conversation.draft, ...conversation.messages.flatMap(m => [m.text, ...(m.replies || []).map(reply => reply.text)]));
   }
@@ -26,7 +26,7 @@ test('every seeded message and draft has prepared wording for all roles and lang
 
 test('every seeded thread has a matching prepared snapshot with grounded evidence', () => {
   const clean = messages => messages.map(({id, profile_id, text}) => ({id, profile_id, text}));
-  for (const messages of [...Object.values(conversations).map(c => c.messages), alignedThread]) {
+  for (const messages of [...Object.values(conversations).map(c => c.messages), alignedThread, conflictingThread]) {
     const fixture = fixtures.threads.find(item => JSON.stringify(item.messages) === JSON.stringify(clean(messages)));
     assert.ok(fixture, 'Missing prepared thread');
     const authors = new Map(messages.map(m => [m.id, m.profile_id]));
@@ -49,13 +49,23 @@ test('prepared wording has no role-preface or third-person retelling', () => {
   }
 });
 
-test('the scope question stays a direct question and implementation plan stays first-person', () => {
+test('the payment question stays direct and implementation plan stays first-person', () => {
   const question = conversations.checkout.messages.find(m => m.id === 'm4').text;
   const korean = fixtures.translations[question].ko.frontend.message;
-  assert.match(korean, /Jamie/);
-  assert.match(korean, /\?$/);
+  assert.match(korean, /\?/);
   assert.doesNotMatch(korean, /(?:물어보고|묻고|요청했|뜻입니다|확인하세요)/);
   const plan = conversations.checkout.messages.find(m => m.id === 'm2').text;
-  assert.match(fixtures.translations[plan].en.manager.message, /^I(?:’|')m /);
+  assert.match(fixtures.translations[plan].en.manager.message, /\bI(?:’|')(?:m|ll) /);
   assert.doesNotMatch(fixtures.translations[plan].ko.frontend.message, /확인하세요|Jamie/);
+});
+
+test('the active room, separate conflicting sample and Inbox use their own prepared findings', () => {
+  assert.ok(Array.isArray(conflictingThread), 'Keep the scope-conflict demonstration separate from the active room');
+  const clean = messages => messages.map(({id, profile_id, text}) => ({id, profile_id, text}));
+  const preparedFor = messages => fixtures.threads.find(item => JSON.stringify(item.messages) === JSON.stringify(clean(messages)));
+  assert.ok(preparedFor(conflictingThread)?.result.disagreements.length);
+  assert.deepEqual(preparedFor(conversations.checkout.messages)?.result.disagreements, []);
+  for (const entry of sampleInbox.filter(item => item.kind === 'thread-check')) {
+    assert.deepEqual(entry.data, preparedFor(entry.snapshot.messages)?.result);
+  }
 });
