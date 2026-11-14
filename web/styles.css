@@ -21,6 +21,6 @@
 .profile-step dt{font-size:12px;text-transform:capitalize}
 .profile-step dd{margin:0}
 .level-scale{display:flex;gap:4px;margin:0;padding:0;list-style:none}
-.level-scale li{margin:0;padding:4px 10px;border:1px solid var(--line);border-radius:99px;font-size:11px;color:#a3abbb}
+.level-scale li{margin:0;padding:4px 10px;border:1px solid var(--line);border-radius:99px;font-size:11px;color:#6f7a8f}
 .level-scale li[aria-current]{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:600}
-.tailored-for{font-size:10px;color:#8996b7;margin:0 0 6px}
+.tailored-for{font-size:10px;color:#5f6f94;margin:0 0 6px}

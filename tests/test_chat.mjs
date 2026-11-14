@@ -15,5 +15,5 @@ test('explicit message times take precedence over the fallback sequence', () => 
 
 test('profile summary names experience and every other-field knowledge level', () => {
   const profile = {role: 'Frontend developer', seniority: 'Junior', knowledge: {design: 'Medium', backend: 'Low'}};
-  assert.equal(profileSummary(profile), 'Junior frontend developer · Design: Medium · Backend: Low');
+  assert.equal(profileSummary(profile), 'Junior Frontend developer · Design: Medium · Backend: Low');
 });

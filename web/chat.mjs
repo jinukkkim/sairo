@@ -29,7 +29,7 @@ const levels = {seniority: ['Junior', 'Mid-level', 'Senior'], knowledge: ['Low',
 const capitalize = text => text[0].toUpperCase() + text.slice(1);
 export function profileSummary(profile) {
   const knowledge = Object.entries(profile.knowledge).map(([field, level]) => `${capitalize(field)}: ${level}`);
-  return [`${profile.seniority} ${profile.role.toLowerCase()}`, ...knowledge].join(' · ');
+  return [`${profile.seniority} ${profile.role}`, ...knowledge].join(' · ');
 }
 
 export function createChat({state, getProfiles, onConversationChange, onSourceChange, onReviewDraft, onExplanationSaved}) {
@@ -75,7 +75,7 @@ export function createChat({state, getProfiles, onConversationChange, onSourceCh
   }
   function scale(options, current, label) {
     const node = el('ol', undefined, 'level-scale'); node.setAttribute('aria-label', label);
-    for (const option of options) { const item = el('li', option); if (option === current) item.setAttribute('aria-current', 'true'); node.append(item); }
+    for (const option of options.includes(current) ? options : [current]) { const item = el('li', option); if (option === current) item.setAttribute('aria-current', 'true'); node.append(item); }
     return node;
   }
   function renderProfileSetup() {
@@ -310,8 +310,10 @@ export function createChat({state, getProfiles, onConversationChange, onSourceCh
     }
     syncViewerControls();
     let seen = true;
-    try { seen = localStorage.getItem('sairo-profile-seen') === '1'; localStorage.setItem('sairo-profile-seen', '1'); } catch {}
-    if (!seen && !document.querySelector('dialog[open]')) openProfile();
+    try { seen = localStorage.getItem('sairo-profile-seen') === '1'; } catch {}
+    if (seen || document.querySelector('dialog[open]')) return;
+    openProfile();
+    try { localStorage.setItem('sairo-profile-seen', '1'); } catch {}
   }
   $('#chat-message').addEventListener('input', () => { announce(); syncComposer(); });
   $('#chat-form').addEventListener('submit', event => {
