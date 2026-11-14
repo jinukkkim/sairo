@@ -25,6 +25,13 @@ export function formatMessageTime(message, index) {
   return new Intl.DateTimeFormat('en', {hour: 'numeric', minute: '2-digit'}).format(date);
 }
 
+const levels = {seniority: ['Junior', 'Mid-level', 'Senior'], knowledge: ['Low', 'Medium', 'High']};
+const capitalize = text => text[0].toUpperCase() + text.slice(1);
+export function profileSummary(profile) {
+  const knowledge = Object.entries(profile.knowledge).map(([field, level]) => `${capitalize(field)}: ${level}`);
+  return [`${profile.seniority} ${profile.role}`, ...knowledge].join(' · ');
+}
+
 export function createChat({state, getProfiles, onConversationChange, onSourceChange, onReviewDraft, onExplanationSaved}) {
   let viewer = state.viewer;
   let language = state.viewerLanguage;
@@ -62,7 +69,33 @@ export function createChat({state, getProfiles, onConversationChange, onSourceCh
     $('#viewer-avatar').textContent = initials[viewer]; $('#viewer-avatar').className = `avatar ${viewer}`;
     const description = language === 'ko' ? '쉬운 한국어 · 번역 포함' : 'Simplified English';
     if ($('#viewer-language').textContent !== description) $('#viewer-language').textContent = description;
+    const profile = getProfiles().find(p => p.id === viewer);
+    $('#viewer-profile').textContent = profile ? `${profile.seniority} · ${profile.role}` : 'Profile';
+    if ($('#profile-dialog').open) renderProfileSetup();
   }
+  function scale(options, current, label) {
+    const node = el('ol', undefined, 'level-scale'); node.setAttribute('aria-label', label);
+    for (const option of options.includes(current) ? options : [current]) { const item = el('li', option); if (option === current) item.setAttribute('aria-current', 'true'); node.append(item); }
+    return node;
+  }
+  function renderProfileSetup() {
+    const profile = getProfiles().find(p => p.id === viewer);
+    if (!profile) return;
+    $('#profile-dialog-title').textContent = `${profile.name}’s profile`;
+    const step = (number, title, ...content) => { const node = el('section', undefined, 'profile-step'); const heading = el('h3'); heading.append(el('span', String(number)), title); node.append(heading, ...content); return node; };
+    const knowledge = el('dl');
+    for (const [field, level] of Object.entries(profile.knowledge)) {
+      const row = el('div'); const value = el('dd'); value.append(scale(levels.knowledge, level, `${field} knowledge: ${level}`));
+      row.append(el('dt', field), value); knowledge.append(row);
+    }
+    $('#profile-setup').replaceChildren(
+      step(1, 'Role and team', el('p', `${profile.role} · ${profile.team} team`)),
+      step(2, 'Experience in your role', scale(levels.seniority, profile.seniority, `Experience: ${profile.seniority}`)),
+      step(3, 'Knowledge of other fields', knowledge),
+      step(4, 'What you need from messages', el('p', profile.focus)),
+      step(5, 'Reading language', el('p', language === 'ko' ? '쉬운 한국어 · Simplified Korean' : 'Simplified English')));
+  }
+  function openProfile() { renderProfileSetup(); $('#profile-dialog').showModal(); }
   function announce(text = '') { $('#chat-status').textContent = text; }
   function openTools() {
     $('#thread-panel').hidden = true; $('#tools-panel').hidden = false;
@@ -124,6 +157,8 @@ export function createChat({state, getProfiles, onConversationChange, onSourceCh
     else if (error?.source === message.text) {
       box.append(el('p', error.message, 'generated-text'), button('Try again', 'text-button', () => explain(message, {retry: true})));
     } else if (result) {
+      const profile = getProfiles().find(p => p.id === viewer);
+      if (profile) box.append(el('p', `Tailored for you · ${profileSummary(profile)}`, 'tailored-for'));
       const text = el('p', result.message, 'generated-text'); text.lang = language; box.append(text);
       if (result.missing_information?.length) {
         const details = el('details', undefined, 'explanation-questions'); details.append(el('summary', 'What the original leaves open'));
@@ -274,6 +309,11 @@ export function createChat({state, getProfiles, onConversationChange, onSourceCh
 
     }
     syncViewerControls();
+    let seen = true;
+    try { seen = localStorage.getItem('sairo-profile-seen') === '1'; } catch {}
+    if (seen || document.querySelector('dialog[open]')) return;
+    openProfile();
+    try { localStorage.setItem('sairo-profile-seen', '1'); } catch {}
   }
   $('#chat-message').addEventListener('input', () => { announce(); syncComposer(); });
   $('#chat-form').addEventListener('submit', event => {
@@ -304,6 +344,8 @@ export function createChat({state, getProfiles, onConversationChange, onSourceCh
   $('#show-members').addEventListener('click', () => showDialog('profiles', 'Checkout profiles'));
   $('#rail-inbox').addEventListener('click', () => showDialog('inbox', 'Clarity Inbox'));
   $('#workspace-help').addEventListener('click', () => showDialog('help', 'About this workspace'));
+  $('#edit-profile').addEventListener('click', openProfile);
+  for (const id of ['#close-profile', '#profile-done']) $(id).addEventListener('click', () => $('#profile-dialog').close());
   $('#close-workspace-dialog').addEventListener('click', () => $('#workspace-dialog').close());
   $('#mobile-nav').addEventListener('click', () => { const open = $('#sidebar').classList.toggle('open'); $('#mobile-nav').setAttribute('aria-expanded', String(open)); });
   $('#review-composer').addEventListener('click', () => { onReviewDraft(state.chatDraft); openTools(); });
