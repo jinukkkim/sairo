@@ -42,20 +42,32 @@ designer). Expand each profile to see seniority, team and cross-discipline knowl
 
 - **Tailored translation (E):** preview a prepared rewrite for each recipient's
   role and knowledge, using the fixed participant languages.
-- **Before sending (A):** preview prepared questions and relevant gaps in screen/scope,
-  conditions, deadline and priority. Complete drafts can have no findings. Optionally
+- **Before sending (A):** preview prepared questions and relevant gaps in owner,
+  completion criteria, screen/scope, conditions, deadline and priority. Complete drafts can have no findings. Optionally
   choose **Improve draft**, compare the proposal with the original, then
   explicitly **Apply draft** or **Restore original draft**. Applying never sends it.
-- **Thread check (B):** inspect prepared results for an attributed sample. Possible
-  interpretations and candidate disagreements link to source message IDs. Try the
-  conflicting and aligned samples; no disagreements is a valid result. The labeled
+- **Thread check (B):** inspect prepared results for an attributed sample. Potential
+  misunderstandings and interpretations link to source message IDs. Try the Friday
+  payment launch, conflicting scope, or aligned sample; no candidates is a valid result. The labeled
   **local participant-response simulation** accepts presenter inputs to a common
-  question. Only different explicit answers confirm a discrepancy in the simulation;
-  matching answers indicate alignment on that question, and pending/unsure stay
-  unresolved. These are never real teammate responses.
+  question. Only different explicit answers show **Confirmed disagreement** in the
+  simulation; matching answers show **Aligned** on that question, and no answer or
+  uncertainty stays **Unresolved**. These are never real teammate responses.
 - **Role + language (D):** preview prepared role and language versions together.
   Alex and Sam use English; Jamie uses Korean. These are fixed bindings, also
   preserved when loading an Inbox source. Prepared source messages are English.
+
+## What works in this version
+
+| Status | Capabilities |
+|---|---|
+| **Works locally** | Browser-memory chat, replies, reactions, saved messages, search, fixed profile switching, draft editing, source-linked prepared findings, cancellation/invalidation, optional draft apply/restore, and local answer-state logic. Refresh resets the session. |
+| **Prepared-result demo** | Tailored translations, before-sending reviews and proposals, thread interpretations, and the Friday payment scenario. These are fixed fixtures returned by the local server after a simulated delay, not live model analysis. |
+| **Partial / simulated** | A thread check can collect presenter-selected answers in the browser to illustrate `Unresolved`, `Confirmed disagreement`, and `Aligned`. They are not teammate responses. The prototype has no actual participant notification or response collection. |
+| **Not implemented** | Live AI analysis, Slack or other messenger integration, real-time collaboration, authentication, persistent storage, real participant confirmation, billing, and production security controls. |
+| **Future work** | Validate user comprehension and the problem; evaluate AI and data-handling feasibility; only then consider a pilot and messenger integration. No user-study results or performance metrics are claimed. |
+
+The retained provider module in `core/ai.py` is not used by the running demo server. The code and its stubbed tests do not mean live AI is available in the product.
 
 ## Run locally
 
@@ -75,13 +87,13 @@ Open [localhost:8000](http://localhost:8000). Chat normally, switch **Current vi
 use a message's simplify button, or open **Clarity tools** to review a draft or thread.
 Edits, conversation/mode changes and participant switches invalidate earlier
 results and clear simulated confirmations. Late responses cannot replace current
-results. Each successful AI run enters the session Clarity Inbox with its original
+results. Each successful prepared run enters the session Clarity Inbox with its original
 input snapshot; opening an Inbox item does not automatically preview a result or apply text.
 
 The local analysis endpoints return prepared results after a 0.7 second delay.
-Use the seeded messages, **Use example**, **Conflicting sample** and **Aligned
-sample** for the complete demonstration. Prepared results cover 33 source texts,
-three viewer roles with English/Korean output, two drafts and five threads.
+Use the seeded messages, **Use example**, **Friday payment launch**, **Conflicting
+scope** and **Aligned sample** for the complete demonstration. Prepared results cover
+the seeded source texts, three viewer roles with English/Korean output, three drafts and six threads.
 The earlier screen-scope discussion is retained only as the explicit conflicting
 sample; the active payment conversation and its Inbox sample have no prepared
 disagreement candidates.
@@ -152,3 +164,4 @@ the prepared data. These tests do not establish the quality of a future live mod
   `/api/improve`, `/api/thread-check`) without provider dispatch.
 - `web/`: English interface, fixed demo content and in-memory session state.
 - `tests/`: pytest and native Node tests without external AI calls.
+
