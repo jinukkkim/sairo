@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {conversations, alignedThread, conflictingThread, exampleDraft, sampleInbox} from '../web/demo.mjs';
+import {conversations, alignedThread, conflictingThread, fridayThread, exampleDraft, sampleInbox} from '../web/demo.mjs';
 
 const fixtures = JSON.parse(await readFile(new URL('../server/demo-results.json', import.meta.url), 'utf8'));
 const profiles = ['manager', 'frontend', 'designer'];
@@ -40,6 +40,18 @@ test('every seeded thread has a matching prepared snapshot with grounded evidenc
   }
 });
 
+test('Friday payment scenario keeps the three meanings separate and evidence-linked', () => {
+  const fixture = fixtures.threads.find(item => JSON.stringify(item.messages) === JSON.stringify(fridayThread));
+  assert.ok(fixture);
+  assert.match(conversations.friday.draft, /payment feature done by Friday/i);
+  assert.deepEqual(fixture.result.disagreements[0].profile_ids, profiles);
+  assert.deepEqual(fixture.result.disagreements[0].source_message_ids, ['f1', 'f2', 'f3']);
+  assert.match(fixture.result.interpretations[0].understanding, /available to users/);
+  assert.match(fixture.result.interpretations[1].understanding, /code work/);
+  assert.match(fixture.result.interpretations[2].understanding, /screen design/);
+  assert.ok(sampleInbox.some(item => item.id === 'sample-friday' && item.data.disagreements.length === 1));
+});
+
 test('prepared wording has no role-preface or third-person retelling', () => {
   const commentary = /For the product decision:|For implementation:|For the user experience:|관점에서는:|从产品决策的角度看：|从前端实现的角度看：|从用户体验与设计的角度看：|\b(?:Alex|Jamie|Sam) (?:is asking|plans|wants|suggests|agrees|confirms|has designs|has prepared|will start|intends)|(?:Alex|Jamie|Sam)[은는이가] /;
   for (const languages of Object.values(fixtures.translations)) {
@@ -69,3 +81,4 @@ test('the active room, separate conflicting sample and Inbox use their own prepa
     assert.deepEqual(entry.data, preparedFor(entry.snapshot.messages)?.result);
   }
 });
+

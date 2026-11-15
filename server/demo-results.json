@@ -1451,6 +1451,165 @@
           "missing_information": []
         }
       }
+    },
+    "Let’s have the payment feature done by Friday.": {
+      "en": {
+        "manager": {
+          "message": "Let’s have the payment feature done by Friday.",
+          "missing_information": [
+            "Who owns the release decision?",
+            "What will count as done: code complete, design approved, or available to users?"
+          ]
+        },
+        "frontend": {
+          "message": "Let’s finish the payment feature by Friday.",
+          "missing_information": [
+            "What acceptance criteria define completion?",
+            "Is Friday a code-complete date or a user-release date?"
+          ]
+        },
+        "designer": {
+          "message": "Let’s have the payment feature done by Friday.",
+          "missing_information": [
+            "Which payment screens are in scope?",
+            "Does done mean approved designs or a feature available to users?"
+          ]
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "금요일까지 결제 기능을 완료해 주세요.",
+          "missing_information": [
+            "출시 결정은 누가 담당하나요?",
+            "완료는 코드 개발, 디자인 승인, 사용자 공개 중 무엇을 뜻하나요?"
+          ]
+        },
+        "frontend": {
+          "message": "금요일까지 결제 기능 개발을 마치면 될까요?",
+          "missing_information": [
+            "완료 기준으로 어떤 인수 조건을 적용하면 될까요?",
+            "금요일은 코드 완료일인가요, 사용자 공개일인가요?"
+          ]
+        },
+        "designer": {
+          "message": "금요일까지 결제 기능을 완료해 주세요.",
+          "missing_information": [
+            "어떤 결제 화면이 범위에 포함되나요?",
+            "완료는 디자인 승인인가요, 사용자에게 기능을 공개하는 것인가요?"
+          ]
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "请在周五前完成支付功能。",
+          "missing_information": [
+            "由谁负责发布决定？",
+            "完成是指代码完成、设计获批，还是用户可以使用？"
+          ]
+        },
+        "frontend": {
+          "message": "请在周五前完成支付功能。",
+          "missing_information": [
+            "完成标准是什么？",
+            "周五是代码完成日期还是面向用户的发布日期？"
+          ]
+        },
+        "designer": {
+          "message": "请在周五前完成支付功能。",
+          "missing_information": [
+            "包含哪些支付页面？",
+            "完成是指设计获批还是功能已向用户开放？"
+          ]
+        }
+      }
+    },
+    "I understand Friday as the deadline for finishing the code. What acceptance criteria should I use?": {
+      "en": {
+        "manager": {
+          "message": "I understand Friday as the date to finish coding. What should I use to check that the work is complete?",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "I understand Friday as the date to finish coding. What should I use to check that the work is complete?",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "I understand Friday as the date to finish coding. What should I use to check that the work is complete?",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "금요일까지 코드 개발을 마치는 일정으로 이해했어요. 작업 완료 여부를 판단할 기준은 무엇인가요?",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "금요일까지 코드 개발을 마치는 일정으로 이해했어요. 작업 완료 여부를 판단할 기준은 무엇인가요?",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "금요일까지 코드 개발을 마치는 일정으로 이해했어요. 작업 완료 여부를 판단할 기준은 무엇인가요?",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "我理解周五是完成编码的期限。应该用什么标准判断工作已完成？",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "我理解周五是完成编码的期限。应该用什么标准判断工作已完成？",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "我理解周五是完成编码的期限。应该用什么标准判断工作已完成？",
+          "missing_information": []
+        }
+      }
+    },
+    "I read Friday as the date to finalize the screen design. Which screens are included?": {
+      "en": {
+        "manager": {
+          "message": "I understood Friday as the date to finish the screen designs. Which screens are included?",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "I understood Friday as the date to finish the screen designs. Which screens are included?",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "I understood Friday as the date to finish the screen designs. Which screens are included?",
+          "missing_information": []
+        }
+      },
+      "ko": {
+        "manager": {
+          "message": "금요일까지 화면 디자인을 확정하는 것으로 이해했어요. 어떤 화면이 포함되나요?",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "금요일까지 화면 디자인을 확정하는 것으로 이해했어요. 어떤 화면이 포함되나요?",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "금요일까지 화면 디자인을 확정하는 것으로 이해했어요. 어떤 화면이 포함되나요?",
+          "missing_information": []
+        }
+      },
+      "zh": {
+        "manager": {
+          "message": "我理解周五是确定界面设计的日期。包含哪些页面？",
+          "missing_information": []
+        },
+        "frontend": {
+          "message": "我理解周五是确定界面设计的日期。包含哪些页面？",
+          "missing_information": []
+        },
+        "designer": {
+          "message": "我理解周五是确定界面设计的日期。包含哪些页面？",
+          "missing_information": []
+        }
+      }
     }
   },
   "unknown_translation": {
@@ -1532,6 +1691,84 @@
       "improvement": {
         "revised_draft": "For payment errors, show an inline retry message. Cart and address are out of scope. Please prioritize the mockup for review on Friday; implementation timing is not agreed.",
         "unresolved_information": []
+      }
+    },
+    "Let’s have the payment feature done by Friday.": {
+      "review": {
+        "reviews": [
+          {
+            "profile_id": "manager",
+            "likely_questions": [
+              "Who is accountable for the release decision?",
+              "What does “done” mean for the team?"
+            ],
+            "missing_information": [
+              {
+                "category": "owner",
+                "question": "Who owns the release decision?"
+              },
+              {
+                "category": "completion_criteria",
+                "question": "What observable result will count as complete?"
+              },
+              {
+                "category": "priority",
+                "question": "How should this work rank against other checkout work?"
+              }
+            ]
+          },
+          {
+            "profile_id": "frontend",
+            "likely_questions": [
+              "Which acceptance checks should I use?",
+              "Is the API included?"
+            ],
+            "missing_information": [
+              {
+                "category": "completion_criteria",
+                "question": "What acceptance criteria must pass?"
+              },
+              {
+                "category": "scope",
+                "question": "Which payment flows and screens are included?"
+              },
+              {
+                "category": "conditions",
+                "question": "Which failure and retry cases are in scope?"
+              }
+            ]
+          },
+          {
+            "profile_id": "designer",
+            "likely_questions": [
+              "Which screens are included?",
+              "Does Friday mean final design or customer release?"
+            ],
+            "missing_information": [
+              {
+                "category": "scope",
+                "question": "Which payment screens and states are included?"
+              },
+              {
+                "category": "owner",
+                "question": "Who approves the final designs?"
+              },
+              {
+                "category": "completion_criteria",
+                "question": "What makes the design ready for handoff?"
+              }
+            ]
+          }
+        ]
+      },
+      "improvement": {
+        "revised_draft": "Let’s have the payment feature done by Friday. Who owns the work? What will count as complete, and which payment flows are in scope?",
+        "unresolved_information": [
+          "Owner is not specified.",
+          "Completion criteria are not specified.",
+          "Payment scope is not specified.",
+          "The source does not state whether Friday means code completion, design approval, or customer release. No date, cost, or schedule detail was added."
+        ]
       }
     }
   },
@@ -1840,6 +2077,75 @@
           }
         ],
         "disagreements": []
+      }
+    },
+    {
+      "messages": [
+        {
+          "id": "f1",
+          "profile_id": "manager",
+          "text": "Let’s have the payment feature done by Friday."
+        },
+        {
+          "id": "f2",
+          "profile_id": "frontend",
+          "text": "I understand Friday as the deadline for finishing the code. What acceptance criteria should I use?"
+        },
+        {
+          "id": "f3",
+          "profile_id": "designer",
+          "text": "I read Friday as the date to finalize the screen design. Which screens are included?"
+        }
+      ],
+      "result": {
+        "interpretations": [
+          {
+            "profile_id": "manager",
+            "understanding": "The payment feature should be available to users by Friday.",
+            "insufficient_evidence": false,
+            "source_message_ids": [
+              "f1"
+            ]
+          },
+          {
+            "profile_id": "frontend",
+            "understanding": "The code work is expected to be finished by Friday; acceptance criteria are still unclear.",
+            "insufficient_evidence": false,
+            "source_message_ids": [
+              "f2"
+            ]
+          },
+          {
+            "profile_id": "designer",
+            "understanding": "The screen design is expected to be finalized by Friday; screen scope is still unclear.",
+            "insufficient_evidence": false,
+            "source_message_ids": [
+              "f3"
+            ]
+          }
+        ],
+        "disagreements": [
+          {
+            "id": "friday-completion",
+            "topic": "Meaning of “done by Friday”",
+            "profile_ids": [
+              "manager",
+              "frontend",
+              "designer"
+            ],
+            "source_message_ids": [
+              "f1",
+              "f2",
+              "f3"
+            ],
+            "question": "What deliverable do you understand should be complete by Friday?",
+            "choices": [
+              "Payment feature available to users",
+              "Payment code complete",
+              "Payment screen design finalized"
+            ]
+          }
+        ]
       }
     }
   ]
