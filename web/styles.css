@@ -24,3 +24,11 @@
 .level-scale li{margin:0;padding:4px 10px;border:1px solid var(--line);border-radius:99px;font-size:11px;color:#6f7a8f}
 .level-scale li[aria-current]{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:600}
 .tailored-for{font-size:10px;color:#5f6f94;margin:0 0 6px}
+.profile-context{font-size:9px!important;color:#8390a4;margin:0 0 7px}
+.original-source{padding:13px 15px;margin-bottom:10px;border:1px solid var(--line);border-radius:7px;background:#fafbfe}
+.original-source summary{font-size:11px;color:#687897;cursor:pointer;font-weight:600}
+.original-source .generated-text{margin-top:8px}
+.badge.potential{color:#916c37;background:#fbf1d8;margin-bottom:6px}
+.fact-warning{font-size:9px!important;line-height:1.6;color:#88714f!important;margin:0}
+.confirmation-status[data-outcome="unresolved"]{border-color:#c29b67;color:#8f7148}
+
