@@ -61,11 +61,11 @@ designer). Expand each profile to see seniority, team and cross-discipline knowl
 
 | Status | Capabilities |
 |---|---|
-| **Works locally** | Browser-memory chat, replies, reactions, saved messages, search, fixed profile switching, draft editing, source-linked prepared findings, cancellation/invalidation, optional draft apply/restore, and local answer-state logic. Refresh resets the session. |
+| **Works locally** | Browser-local saved chat messages, replies, reactions, saved messages, composer drafts, viewer choice, search, fixed profile switching, draft editing, source-linked prepared findings, cancellation/invalidation, optional draft apply/restore, and local answer-state logic. These persist in this browser on this device only. |
 | **Prepared-result demo** | Tailored translations, before-sending reviews and proposals, thread interpretations, and the Friday payment scenario. These are fixed fixtures returned by the local server after a simulated delay, not live model analysis. |
 | **Partial / simulated** | A thread check can collect presenter-selected answers in the browser to illustrate `Unresolved`, `Confirmed disagreement`, and `Aligned`. They are not teammate responses. The prototype has no actual participant notification or response collection. |
-| **Not implemented** | Live AI analysis, Slack or other messenger integration, real-time collaboration, authentication, persistent storage, real participant confirmation, billing, and production security controls. |
-| **Future work** | Validate user comprehension and the problem; evaluate AI and data-handling feasibility; only then consider a pilot and messenger integration. No user-study results or performance metrics are claimed. |
+| **Not implemented** | Live AI analysis, cloud or cross-device storage, messages delivered to real teammates, real participant confirmation, external team messaging, authentication, billing, and production security controls. |
+| **Future work** | Validate user comprehension and the problem; evaluate AI and data-handling feasibility. No user-study results or performance metrics are claimed. |
 
 The retained provider module in `core/ai.py` is not used by the running demo server. The code and its stubbed tests do not mean live AI is available in the product.
 
@@ -113,11 +113,14 @@ live integration, which requires a new explicit request. `OPENAI_API_KEY` and
 ## Demo data and limits
 
 The group and 1:1 conversations, profiles and seeded Inbox entries are fixed English
-demo data. **Send message** appends only in browser memory; no teammate receives
-anything. Sample Inbox findings are clearly labeled **Sample data**, separate from
+demo data. **Send message** appends to this browser’s local demo chat and is saved in
+local browser storage; it is not delivered to teammates or other devices. The same
+local save applies to replies, reactions, saved items, drafts and the selected viewer.
+Use **Reset local demo data** in Workspace help to restore the prepared starting data.
+Prepared analysis results, Inbox runs, explanations and simulated participant answers
+remain temporary and are not saved. Sample Inbox findings are clearly labeled **Sample data**, separate from
 **Demo result** entries opened during the current session; neither is live AI. The Inbox is an author-workflow
-demonstration with no access-control claim. Refresh resets conversations, replies,
-reactions, saved messages, drafts,
+demonstration with no access-control claim. Refresh retains local chat changes but clears
 Inbox results, explanations and simulation answers. Thread checks match prepared top-level message snapshots; reply explanations
 only work for prepared source text.
 Local chat has a 20-message / 12,000-character limit per conversation; each message
@@ -129,8 +132,8 @@ messages with unique IDs, known profiles, at most 6,000 characters per message a
 pairings and evidence references. Generated text is rendered as text. No-store
 headers cover API responses, including validation errors.
 
-There is no authentication, database, persistent messaging, realtime infrastructure,
-Supabase, Slack connection, automatic thread-ending detection or automatic agreement
+There is no authentication, cloud database, cross-device messaging, realtime infrastructure,
+automatic thread-ending detection or automatic agreement
 claim. Keep the server on localhost. AI may still misunderstand or invent information;
 compare results with their originals. Human review is needed for language quality.
 
@@ -162,6 +165,6 @@ the prepared data. These tests do not establish the quality of a future live mod
 - `server/demo.py` and `server/demo-results.json`: prepared results and simulated loading.
 - `server/app.py`: local-only FastAPI routes (`/api/profiles`, `/api/translate`, `/api/review`,
   `/api/improve`, `/api/thread-check`) without provider dispatch.
-- `web/`: English interface, fixed demo content and in-memory session state.
+- `web/`: English interface, fixed demo content and browser-local demo state.
 - `tests/`: pytest and native Node tests without external AI calls.
 

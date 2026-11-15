@@ -375,3 +375,44 @@ test('only another participant’s messages and replies can be converted', () =>
   assert.equal(s.canExplain('missing'), false);
   assert.equal(s.canExplain('m1', '__proto__'), false);
 });
+
+test('demo chat state persists locally across workspace reloads, while analysis remains temporary', () => {
+  const values = new Map();
+  const storage = {getItem: key => values.get(key) ?? null, setItem: (key, value) => values.set(key, value), removeItem: key => values.delete(key)};
+  const first = new Workspace(conversations, sampleInbox, {storage});
+  first.setViewer('frontend');
+  first.sendLocal('frontend', 'Local demo message');
+  first.replyLocal('m1', 'designer', 'Local demo reply');
+  first.toggleReaction('m1', '👍', 'frontend');
+  first.toggleSaved('m1');
+  first.editChatDraft('Unsent local draft');
+  first.editDraft('A tool draft saved locally');
+  const request = first.begin('translate');
+  first.finish(request, {translations: [{message: 'Prepared result'}]});
+
+  const restored = new Workspace(conversations, sampleInbox, {storage});
+  assert.equal(restored.conversation, 'checkout');
+  assert.equal(restored.viewer, 'frontend');
+  assert.ok(restored.thread.some(message => message.text === 'Local demo message'));
+  assert.equal(restored.thread[0].replies[0].text, 'Local demo reply');
+  assert.equal(restored.thread[0].saved, true);
+  assert.deepEqual(restored.thread[0].reactions['👍'], ['frontend']);
+  assert.equal(restored.chatDraft, 'Unsent local draft');
+  assert.equal(restored.draft, 'A tool draft saved locally');
+  assert.equal(restored.result, null);
+  assert.equal(restored.inbox.some(item => item.provenance === 'demo'), false);
+});
+
+test('reset returns the local demo to prepared data and malformed storage is ignored', () => {
+  const values = new Map([['sairo-demo-session-v1', '{bad json']]);
+  const storage = {getItem: key => values.get(key) ?? null, setItem: (key, value) => values.set(key, value), removeItem: key => values.delete(key)};
+  const state = new Workspace(conversations, sampleInbox, {storage});
+  assert.equal(state.thread.length, conversations.checkout.messages.length);
+  state.sendLocal('manager', 'Discard me');
+  state.resetDemoData();
+  assert.deepEqual(state.thread, conversations.checkout.messages);
+  assert.equal(state.viewer, 'manager');
+  assert.equal(state.chatDraft, '');
+  assert.equal(state.conversations.checkout.draft, conversations.checkout.draft);
+});
+

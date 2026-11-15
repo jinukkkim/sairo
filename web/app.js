@@ -268,6 +268,11 @@ $('#aligned').addEventListener('click', () => { invalidate(() => state.editThrea
 $('#friday-scenario').addEventListener('click', () => { state.selectConversation('friday'); state.setMode('B'); state.editThread(fridayThread); renderWorkspace(); status('Friday payment scenario loaded. Preview its prepared thread check.'); });
 $('#close-inbox').addEventListener('click', () => $('#inbox-detail').close());
 $('#load-inbox').addEventListener('click', () => { invalidate(() => state.loadInbox(selectedInbox), 'Original snapshot loaded. Preview its prepared result.'); renderWorkspace(); $('#inbox-detail').close(); chat.openTools(); $('#translate').focus(); });
+$('#reset-demo-data').addEventListener('click', () => {
+  if (!window.confirm('Reset this browser’s local demo messages, drafts and viewer to the prepared starting data?')) return;
+  controller?.abort(); state.resetDemoData(); renderInbox(); renderWorkspace(); chat.render();
+  $('#workspace-dialog').close(); status('Local demo data reset to the prepared starting data.');
+});
 
 async function initialize() {
   renderInbox(); renderWorkspace(); status('Loading the fixed team profiles…');
