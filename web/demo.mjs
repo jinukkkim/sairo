@@ -36,6 +36,12 @@ export const alignedThread = [
   {id: 'a2', profile_id: 'frontend', text: 'Agreed: payment only, with no changes to cart or address.'},
   {id: 'a3', profile_id: 'designer', text: 'My mockups match: payment only. Cart and address stay unchanged.'}
 ];
+export const fridayThread = [
+  {id: 'f1', profile_id: 'manager', text: 'Let’s have the payment feature done by Friday.'},
+  {id: 'f2', profile_id: 'frontend', text: 'I understand Friday as the deadline for finishing the code. What acceptance criteria should I use?'},
+  {id: 'f3', profile_id: 'designer', text: 'I read Friday as the date to finalize the screen design. Which screens are included?'}
+];
+conversations.friday = {title: 'Friday payment launch', channel: 'friday-payment-launch', topic: 'A prepared example of how “done by Friday” can mean different deliverables.', kind: 'Group demo', draft: 'Let’s have the payment feature done by Friday.', messages: fridayThread};
 export const sampleInbox = [
   {id: 'sample-review', title: 'Checkout draft has open questions', provenance: 'sample', kind: 'review',
    snapshot: {mode: 'A', conversation: 'checkout', message: exampleDraft, target_languages: participantLanguages},
@@ -84,4 +90,12 @@ export const sampleInbox = [
   ],
   "disagreements": []
 }}
+  ,{id: 'sample-friday', title: 'Friday payment feature: what does “done” mean?', provenance: 'sample', kind: 'thread-check',
+   snapshot: {mode: 'B', conversation: 'friday', messages: fridayThread},
+   data: {interpretations: [
+     {profile_id: 'manager', understanding: 'The payment feature should be available to users by Friday.', insufficient_evidence: false, source_message_ids: ['f1']},
+     {profile_id: 'frontend', understanding: 'The code work is expected to be finished by Friday; acceptance criteria are still unclear.', insufficient_evidence: false, source_message_ids: ['f2']},
+     {profile_id: 'designer', understanding: 'The screen design is expected to be finalized by Friday; screen scope is still unclear.', insufficient_evidence: false, source_message_ids: ['f3']}
+   ], disagreements: [{id: 'friday-completion', topic: 'Meaning of “done by Friday”', profile_ids: ['manager', 'frontend', 'designer'], source_message_ids: ['f1', 'f2', 'f3'], question: 'What deliverable do you understand should be complete by Friday?', choices: ['Payment feature available to users', 'Payment code complete', 'Payment screen design finalized']} ]}}
 ];
+
