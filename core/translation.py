@@ -125,7 +125,7 @@ class Output(BaseModel):
 
 
 class MissingItem(Output):
-    category: Literal["scope", "conditions", "deadline", "priority"]
+    category: Literal["owner", "deadline", "completion_criteria", "priority", "scope", "conditions"]
     question: Text
 
 
@@ -213,8 +213,8 @@ async def review(message: str, *, api_key: str, client: httpx.AsyncClient,
                  model: str = DEFAULT_MODEL) -> ReviewBatch:
     source = MessageInput(message=message).message
     system = """Review the draft before sending, in English, for exactly each supplied profile.
-Give recipient-specific likely questions, and missing_information categorized as scope
-(screen/scope), conditions, deadline or priority. Only flag relevant gaps; complete drafts
+Give recipient-specific likely questions, and missing_information categorized as owner,
+deadline, completion_criteria, priority, scope (screen/scope) or conditions. Only flag relevant gaps; complete drafts
 can have empty findings and empty questions. Do not invent a problem to fill a category. """ + FACT_RULES
     return await generate(ReviewBatch, system, feature_payload(source_message=source),
                           api_key=api_key, client=client, model=model)
@@ -270,3 +270,4 @@ confirmed findings. """ + FACT_RULES
     except ValueError as exc:
         raise TranslationError("The AI service returned an invalid response. Please try again.") from exc
     return result
+

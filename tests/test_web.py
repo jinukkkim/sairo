@@ -41,7 +41,7 @@ async def test_four_feature_workspace_exposes_controls_and_module_assets():
         page = Controls()
         page.feed((await client.get('/')).text)
         assert set(page.modes) == {'E', 'A', 'B', 'D'}
-        for id in ['conversation', 'chat-log', 'chat-send', 'thread-editor', 'inbox-list', 'inbox-detail', 'improve', 'apply', 'restore']:
+        for id in ['conversation', 'chat-log', 'chat-send', 'thread-editor', 'friday-scenario', 'inbox-list', 'inbox-detail', 'improve', 'apply', 'restore', 'reset-demo-data']:
             assert id in page.controls
         assert page.controls['status'][1]['role'] == 'status'
         assert any(script.get('type') == 'module' for script in page.scripts)
@@ -101,3 +101,4 @@ async def test_current_viewer_is_the_only_person_switch_and_language_is_read_onl
         assert page.ids['viewer'][0] == 'select'
         assert 'hidden' not in page.ids['viewer'][1]
         assert page.ids['viewer-language'][0] != 'select'
+

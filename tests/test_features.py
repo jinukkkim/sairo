@@ -65,6 +65,16 @@ async def test_review_accepts_empty_findings_and_requires_all_recipients():
             await invoke(tr.review, data, "Hello")
 
 
+def test_review_supports_owner_and_completion_criteria_gaps():
+    data = {'reviews': [{'profile_id': id, 'likely_questions': [], 'missing_information': [
+        {'category': 'owner', 'question': 'Who owns this?'} if id == 'manager' else
+        {'category': 'completion_criteria', 'question': 'What counts as complete?'}
+    ]} for id in ('manager', 'frontend', 'designer')]}
+    result = tr.ReviewBatch.model_validate(data)
+    assert result.reviews[0].missing_information[0].category == 'owner'
+    assert result.reviews[1].missing_information[0].category == 'completion_criteria'
+
+
 def test_review_recipient_count_follows_the_configured_profiles(monkeypatch):
     monkeypatch.setattr(tr, 'PROFILES', tr.PROFILES[:2])
     data = {'reviews': [{'profile_id': id, 'likely_questions': [], 'missing_information': []}
@@ -179,3 +189,4 @@ async def test_thread_rejects_reserved_unresolved_answer_choices(reserved):
     }]
     with pytest.raises(tr.TranslationError, match='invalid response'):
         await invoke(tr.thread_check, data, MESSAGES)
+

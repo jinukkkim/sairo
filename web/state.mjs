@@ -16,6 +16,26 @@ function answerValue(choices, value) {
   return reserved === null ? index : reserved === '' ? undefined : 'unsure';
 }
 
+function validStoredConversation(conversation, profiles) {
+  if (!conversation || typeof conversation.draft !== 'string' || conversation.draft.length > 6000
+    || !Array.isArray(conversation.messages) || conversation.messages.length > 20) return false;
+  const ids = new Set();
+  let total = 0;
+  return conversation.messages.every(message => {
+    if (!message || typeof message.id !== 'string' || ids.has(message.id)
+      || !Object.hasOwn(profiles, message.profile_id) || typeof message.text !== 'string' || message.text.length > 6000) return false;
+    ids.add(message.id); total += message.text.trim().length;
+    if (total > 12000) return false;
+    if (message.replies !== undefined && (!Array.isArray(message.replies) || message.replies.length > 20
+      || message.replies.some(reply => !reply || typeof reply.id !== 'string' || !Object.hasOwn(profiles, reply.profile_id)
+        || typeof reply.text !== 'string' || reply.text.length > 6000))) return false;
+    if (message.reactions !== undefined && (!message.reactions || typeof message.reactions !== 'object'
+      || Object.entries(message.reactions).some(([emoji, authors]) => !['👍', '👀', '✅', '💡'].includes(emoji)
+        || !Array.isArray(authors) || authors.some(id => !Object.hasOwn(profiles, id))))) return false;
+    return message.saved === undefined || typeof message.saved === 'boolean';
+  });
+}
+
 export function answerOptions(choices) {
   return [
     {label: 'Pending — no answer', value: ''},
@@ -33,7 +53,15 @@ export function confirmationStatus(candidate, answers = {}) {
 }
 
 export class Workspace {
-  constructor(conversations, inbox) {
+  constructor(conversations, inbox, {storage, storageKey = 'sairo-demo-session-v1'} = {}) {
+    this.seedConversations = copy(conversations);
+    this.seedInbox = copy(inbox);
+    this.storageKey = storageKey;
+    if (storage !== undefined) this.storage = storage;
+    else {
+      try { this.storage = globalThis.localStorage; }
+      catch { this.storage = null; }
+    }
     this.conversations = copy(conversations);
     this.inbox = copy(inbox);
     this.mode = 'E';
@@ -43,6 +71,46 @@ export class Workspace {
     this.chatDrafts = new Map();
     this.explanations = new Map();
     this.explanationRequests = new Map();
+    this.restoredConversation = 'checkout';
+    this.restoreSession();
+    this.selectConversation(this.restoredConversation);
+    this.restoredConversation = null;
+  }
+  restoreSession() {
+    if (!this.storage) return;
+    try {
+      const saved = JSON.parse(this.storage.getItem(this.storageKey) || 'null');
+      if (!saved || saved.version !== 1 || !saved.conversations || typeof saved.conversations !== 'object') return;
+      const ids = Object.keys(this.seedConversations);
+      if (!ids.every(id => validStoredConversation(saved.conversations[id], this.languages))) return;
+      this.conversations = Object.fromEntries(ids.map(id => [id, {...copy(this.seedConversations[id]),
+        draft: saved.conversations[id].draft, messages: copy(saved.conversations[id].messages)}]));
+      if (Object.hasOwn(this.languages, saved.viewer)) this.viewer = saved.viewer;
+      this.restoredConversation = ids.includes(saved.conversation) ? saved.conversation : 'checkout';
+      if (Array.isArray(saved.chatDrafts)) {
+        this.chatDrafts = new Map(saved.chatDrafts.filter(([key, value]) => typeof key === 'string' && typeof value === 'string' && value.length <= 6000));
+      }
+    } catch { /* Ignore malformed or unavailable browser storage and use the prepared fixtures. */ }
+  }
+  persist() {
+    if (!this.storage) return false;
+    try {
+      const conversations = {...this.conversations};
+      if (this.conversation && this.conversations[this.conversation]) {
+        conversations[this.conversation] = {...this.conversations[this.conversation], draft: this.draft, messages: copy(this.thread)};
+      }
+      this.storage.setItem(this.storageKey, JSON.stringify({version: 1, conversation: this.conversation,
+        viewer: this.viewer, conversations, chatDrafts: [...this.chatDrafts]}));
+      return true;
+    } catch { return false; }
+  }
+  resetDemoData() {
+    try { this.storage?.removeItem(this.storageKey); } catch { /* Continue with an in-memory reset. */ }
+    this.conversations = copy(this.seedConversations);
+    this.inbox = copy(this.seedInbox);
+    this.mode = 'E'; this.viewer = 'manager'; this.sequence = 0;
+    this.conversation = null; this.draft = ''; this.thread = [];
+    this.chatDrafts.clear(); this.explanations.clear(); this.explanationRequests.clear();
     this.selectConversation('checkout');
   }
   invalidate() {
@@ -56,8 +124,10 @@ export class Workspace {
   saveConversation() {
     if (this.conversation) this.conversations[this.conversation] = {
       ...this.conversations[this.conversation], draft: this.draft, messages: copy(this.thread)};
+    this.persist();
   }
   selectConversation(id) {
+    if (!this.conversations[id]) return false;
     this.explanationRequests.clear();
     this.saveConversation();
     const conversation = this.conversations[id];
@@ -66,13 +136,16 @@ export class Workspace {
     this.thread = copy(conversation.messages);
     this.restoreOriginal = null;
     this.invalidate();
+    this.persist();
+    return true;
   }
-  editDraft(value) { this.draft = value; this.invalidate(); }
+  editDraft(value) { this.draft = value; this.invalidate(); this.saveConversation(); }
   editThread(messages) {
     this.thread = copy(messages);
     this.explanations.clear();
     this.explanationRequests.clear();
     this.invalidate();
+    this.saveConversation();
   }
   setMode(mode) { this.mode = mode; this.invalidate(); }
   get languages() { return participantLanguages; }
@@ -81,6 +154,7 @@ export class Workspace {
     if (!Object.hasOwn(this.languages, id) || id === this.viewer) return false;
     this.viewer = id;
     this.invalidate();
+    this.persist();
     return true;
   }
   snapshot() {
@@ -127,12 +201,14 @@ export class Workspace {
     this.restoreOriginal = this.draft;
     this.draft = this.proposal.revised_draft;
     this.invalidate();
+    this.saveConversation();
   }
   restoreDraft() {
     if (this.restoreOriginal === null) return;
     this.draft = this.restoreOriginal;
     this.restoreOriginal = null;
     this.invalidate();
+    this.saveConversation();
   }
   loadInbox(entry) {
     this.selectConversation(entry.snapshot.conversation);
@@ -148,13 +224,14 @@ export class Workspace {
     this.invalidate();
   }
   get chatDraft() { return this.chatDrafts.get(JSON.stringify([this.conversation, this.viewer])) || ''; }
-  editChatDraft(text) { this.chatDrafts.set(JSON.stringify([this.conversation, this.viewer]), text); }
+  editChatDraft(text) { this.chatDrafts.set(JSON.stringify([this.conversation, this.viewer]), text); this.persist(); }
   replyLocal(messageId, profileId, text) {
     const message = this.thread.find(m => m.id === messageId);
     if (!message || !Object.hasOwn(this.languages, profileId) || !text.trim() || text.length > 6000) return false;
     if ((message.replies?.length || 0) >= 20) return false;
     message.replies ??= [];
     message.replies.push({id: `reply-${++this.sequence}`, profile_id: profileId, text: text.trim(), time: new Date().toISOString()});
+    this.saveConversation();
     return true;
   }
   toggleReaction(messageId, emoji, profileId) {
@@ -163,12 +240,14 @@ export class Workspace {
     message.reactions ??= {};
     const authors = message.reactions[emoji] || [];
     message.reactions[emoji] = authors.includes(profileId) ? authors.filter(id => id !== profileId) : [...authors, profileId];
+    this.saveConversation();
     return true;
   }
   toggleSaved(messageId) {
     const message = this.thread.find(m => m.id === messageId);
     if (!message) return false;
     message.saved = !message.saved;
+    this.saveConversation();
     return true;
   }
   explanationKey(messageId, profileId, language) {
@@ -211,6 +290,8 @@ export class Workspace {
     this.thread.push({id: `local-${++this.sequence}`, profile_id: profileId, text: text.trim(), time: new Date().toISOString()});
     this.editChatDraft('');
     this.invalidate();
+    this.saveConversation();
     return true;
   }
 }
+

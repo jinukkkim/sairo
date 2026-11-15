@@ -1,13 +1,13 @@
 import {Workspace, answerOptions, confirmationStatus} from './state.mjs';
 import {createChat} from './chat.mjs';
-import {conversations, sampleInbox, exampleDraft, alignedThread, conflictingThread} from './demo.mjs';
+import {conversations, sampleInbox, exampleDraft, alignedThread, conflictingThread, fridayThread} from './demo.mjs';
 
 const $ = selector => document.querySelector(selector);
 const state = new Workspace(conversations, sampleInbox);
 const modes = {
   E: {title: 'Through their lens', action: 'Translate for the team', description: 'Adapt the same facts for each role, seniority and knowledge profile. Alex and Sam receive simplified English; Jamie also receives a Korean translation.', endpoint: 'translate'},
   A: {title: 'Before you send', action: 'Review draft', description: 'Find recipient-specific questions and relevant gaps in scope, conditions, deadline or priority. An empty finding is valid.', endpoint: 'review'},
-  B: {title: 'Possible understanding', action: 'Check thread', description: 'Compare statements, inspect the evidence, then test a common question with a clearly labeled local answer simulation.', endpoint: 'thread-check'},
+  B: {title: 'Thread check', action: 'Check thread', description: 'Review a prepared potential misunderstanding and its source messages. The local response simulation is illustrative, not a teammate reply.', endpoint: 'thread-check'},
   D: {title: 'Role and language together', action: 'Translate role + language', description: 'Adapt perspective and language in one generation. Alex and Sam use English; Jamie uses Korean.', endpoint: 'translate'},
 };
 const languageNames = {en: 'English', ko: 'Korean', zh: 'Chinese'};
@@ -103,7 +103,9 @@ function evidence(ids, prefix) {
 }
 function resultCard(id) {
   const card = element('article', undefined, 'recipient');
-  card.append(element('h3', name(id)), element('p', profiles.find(p => p.id === id)?.role || '', 'small'));
+  const profile = profiles.find(p => p.id === id);
+  card.append(element('h3', name(id)), element('p', profile ? `${profile.role} · ${profile.seniority}` : '', 'small'));
+  if (profile) card.append(element('p', `Relevant knowledge: ${Object.entries(profile.knowledge).map(([field, level]) => `${field} ${level}`).join(' · ')}`, 'profile-context'));
   return card;
 }
 function renderAnalysis(data, kind, container, {simulation = false, prefix = 'source-'} = {}) {
@@ -123,9 +125,10 @@ function renderAnalysis(data, kind, container, {simulation = false, prefix = 'so
       const card = resultCard(review.profile_id);
       if (review.likely_questions.length) card.append(element('h4', 'Likely questions'), list(review.likely_questions));
       if (!review.likely_questions.length && !review.missing_information.length) card.append(element('p', 'No relevant gaps found. Compare with the original.', 'small'));
-      for (const category of ['scope', 'conditions', 'deadline', 'priority']) {
+      for (const category of ['owner', 'deadline', 'completion_criteria', 'priority', 'scope', 'conditions']) {
         const items = review.missing_information.filter(item => item.category === category);
-        if (items.length) card.append(element('h4', category === 'scope' ? 'Screen / scope' : category[0].toUpperCase() + category.slice(1)), list(items.map(item => item.question)));
+        const labels = {owner: 'Owner', deadline: 'Deadline', completion_criteria: 'Completion criteria', priority: 'Priority', scope: 'Scope', conditions: 'Conditions'};
+        if (items.length) card.append(element('h4', labels[category]), list(items.map(item => item.question)));
       }
       container.append(card);
     }
@@ -134,19 +137,19 @@ function renderAnalysis(data, kind, container, {simulation = false, prefix = 'so
     const grid = element('div', undefined, 'recipients');
     for (const interpretation of data.interpretations) {
       const card = resultCard(interpretation.profile_id);
-      card.append(element('span', interpretation.insufficient_evidence ? 'Insufficient evidence' : 'Possible interpretation', 'badge sample'), element('p', interpretation.understanding, 'generated-text'), evidence(interpretation.source_message_ids, prefix)); grid.append(card);
+      card.append(element('span', interpretation.insufficient_evidence ? 'Insufficient evidence' : 'Prepared interpretation', 'badge sample'), element('p', interpretation.understanding, 'generated-text'), evidence(interpretation.source_message_ids, prefix)); grid.append(card);
     }
     container.append(grid);
     if (!data.disagreements.length) container.append(element('p', 'No prepared candidate disagreements for this conversation.', 'notice'));
     for (const candidate of data.disagreements) {
       const card = element('article', undefined, 'candidate');
-      card.append(element('h3', `Candidate: ${candidate.topic}`), element('p', 'Prepared candidate, pending confirmation in the local simulation.', 'small'), evidence(candidate.source_message_ids, prefix), element('h4', candidate.question));
+      card.append(element('span', 'Potential misunderstanding', 'badge potential'), element('h3', candidate.topic), element('p', 'Prepared estimate based on these messages; it is not a confirmed disagreement.', 'small'), evidence(candidate.source_message_ids, prefix), element('h4', candidate.question));
       if (simulation) {
         card.append(element('p', 'Local participant-response simulation — presenter inputs, not real teammate replies.', 'simulation-label'));
         const answerState = element('p', undefined, 'confirmation-status'); answerState.setAttribute('role', 'status');
         const update = () => {
           const outcome = confirmationStatus(candidate, state.confirmations.get(candidate.id));
-          const messages = {pending: 'Pending: explicit answers from every concerned participant are required.', unresolved: 'Unresolved: an unsure or invalid answer cannot confirm disagreement.', confirmed: 'Confirmed discrepancy in local simulation: explicit answers differ on this question.', aligned: 'Aligned on this question in local simulation: explicit answers match.'};
+          const messages = {pending: 'Unresolved: waiting for explicit answers from every participant in this local simulation.', unresolved: 'Unresolved: at least one simulated answer is unsure or invalid.', confirmed: 'Confirmed disagreement in local simulation: explicit answers differ on this question.', aligned: 'Aligned in local simulation: explicit answers match on this question.'};
           answerState.textContent = messages[outcome]; answerState.dataset.outcome = outcome;
         };
         for (const id of candidate.profile_ids) {
@@ -172,7 +175,13 @@ function renderOutputs() {
   $('#results-heading').textContent = modes[state.mode].title;
   $('#result-origin').textContent = state.result ? 'Prepared demo result · this session' : 'Choose a feature to preview';
   const output = $('#results');
-  if (state.result) renderAnalysis(state.result, modes[state.mode].endpoint, output, {simulation: state.mode === 'B'});
+  if (state.result && modes[state.mode].endpoint === 'translate') {
+    const original = element('details', undefined, 'original-source'); original.open = true;
+    original.append(element('summary', 'Original message'), element('p', state.draft, 'generated-text'));
+    output.className = '';
+    output.replaceChildren(original);
+    const translations = element('div'); renderAnalysis(state.result, 'translate', translations); output.append(translations);
+  } else if (state.result) renderAnalysis(state.result, modes[state.mode].endpoint, output, {simulation: state.mode === 'B'});
   else { output.className = ''; output.replaceChildren(element('p', 'Choose a feature and run it with your current draft or thread.', 'empty-state')); }
   $('#improvement-section').hidden = state.mode !== 'A' || (!state.result?.reviews && state.restoreOriginal === null);
   $('#improve').hidden = !state.result?.reviews;
@@ -256,8 +265,14 @@ $('#apply').addEventListener('click', () => { invalidate(() => state.applyPropos
 $('#restore').addEventListener('click', () => { invalidate(() => state.restoreDraft(), 'Original draft restored.'); renderWorkspace(); });
 $('#conflicting').addEventListener('click', () => { invalidate(() => state.editThread(conflictingThread), 'Conflicting sample restored. Preview its prepared thread check.'); renderWorkspace(); });
 $('#aligned').addEventListener('click', () => { invalidate(() => state.editThread(alignedThread), 'Aligned sample loaded. Its prepared result has no candidate disagreements.'); renderWorkspace(); });
+$('#friday-scenario').addEventListener('click', () => { state.selectConversation('friday'); state.setMode('B'); state.editThread(fridayThread); renderWorkspace(); status('Friday payment scenario loaded. Preview its prepared thread check.'); });
 $('#close-inbox').addEventListener('click', () => $('#inbox-detail').close());
 $('#load-inbox').addEventListener('click', () => { invalidate(() => state.loadInbox(selectedInbox), 'Original snapshot loaded. Preview its prepared result.'); renderWorkspace(); $('#inbox-detail').close(); chat.openTools(); $('#translate').focus(); });
+$('#reset-demo-data').addEventListener('click', () => {
+  if (!window.confirm('Reset this browser’s local demo messages, drafts and viewer to the prepared starting data?')) return;
+  controller?.abort(); state.resetDemoData(); renderInbox(); renderWorkspace(); chat.render();
+  $('#workspace-dialog').close(); status('Local demo data reset to the prepared starting data.');
+});
 
 async function initialize() {
   renderInbox(); renderWorkspace(); status('Loading the fixed team profiles…');
@@ -275,3 +290,4 @@ const chat = createChat({
   onExplanationSaved: entry => { state.inbox.unshift(entry); renderInbox(); },
 });
 initialize();
+
